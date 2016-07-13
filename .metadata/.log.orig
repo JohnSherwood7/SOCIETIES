@@ -1,0 +1,2271 @@
+!SESSION 2012-06-19 12:57:31.058 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2012-06-19 12:58:15.506
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2012-06-19 12:58:15.506
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(com.python.pydev.analysis.actions.pyGlobalsBrowserWorkbench,Python Show Class Browser,
+		Show Class Browser,
+		Category(org.python.pydev.ui.category.source,Pydev - Editor,Pydev editor category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.python.pydev.core 4 4 2012-06-19 12:58:27.175
+!MESSAGE Server returned HTTP response code: 500 for URL: https://ping.aptana.com/ping.php
+!STACK 0
+java.io.IOException: Server returned HTTP response code: 500 for URL: https://ping.aptana.com/ping.php
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1403)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at org.python.pydev.logging.ping.LogPingSender.sendPing(LogPingSender.java:62)
+	at org.python.pydev.logging.ping.SynchedLogPing.send(SynchedLogPing.java:158)
+	at org.python.pydev.logging.ping.AsyncLogPing.consumeAllCommands(AsyncLogPing.java:125)
+	at org.python.pydev.logging.ping.AsyncLogPing.access$0(AsyncLogPing.java:94)
+	at org.python.pydev.logging.ping.AsyncLogPing$1.run(AsyncLogPing.java:41)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2013-06-10 13:28:55.314 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2013-06-10 13:30:19.973
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2013-06-10 13:30:19.973
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-06-10 13:30:19.973
+!MESSAGE "C/C++ Development Tools SDK" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-06-10 13:30:19.973
+!MESSAGE "C/C++ Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2013-06-10 13:30:19.973
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.973
+!MESSAGE Software being installed: C/C++ Remote Launch 6.0.0.201302132326 (org.eclipse.cdt.launch.remote.feature.group 6.0.0.201302132326)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.973
+!MESSAGE Missing requirement: C/C++ Remote Debug Launcher 2.4.0.201302132326 (org.eclipse.cdt.launch.remote 2.4.0.201302132326) requires 'bundle org.eclipse.rse.ui [3.0.0,4.0.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2013-06-10 13:30:19.973
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.973
+!MESSAGE From: C/C++ Remote Launch 6.0.0.201302132326 (org.eclipse.cdt.launch.remote.feature.group 6.0.0.201302132326)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.973
+!MESSAGE To: org.eclipse.cdt.launch.remote [2.4.0.201302132326]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2013-06-10 13:30:19.983
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2013-06-10 13:30:19.983
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-06-10 13:30:19.983
+!MESSAGE "C/C++ Development Tools SDK" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2013-06-10 13:30:19.983
+!MESSAGE "C/C++ Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2013-06-10 13:30:19.983
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.983
+!MESSAGE Software being installed: C/C++ Remote Launch 6.0.0.201302132326 (org.eclipse.cdt.launch.remote.feature.group 6.0.0.201302132326)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.983
+!MESSAGE Missing requirement: C/C++ Remote Debug Launcher 2.4.0.201302132326 (org.eclipse.cdt.launch.remote 2.4.0.201302132326) requires 'bundle org.eclipse.rse.ui [3.0.0,4.0.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2013-06-10 13:30:19.983
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.983
+!MESSAGE From: C/C++ Remote Launch 6.0.0.201302132326 (org.eclipse.cdt.launch.remote.feature.group 6.0.0.201302132326)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2013-06-10 13:30:19.983
+!MESSAGE To: org.eclipse.cdt.launch.remote [2.4.0.201302132326]
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2013-06-10 13:30:58.578
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2013-06-10 13:30:58.578
+!MESSAGE session context was:(profile=epp.package.java, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.578
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.578
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt_8.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.579
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt_8.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.579
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.579
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.579
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.580
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.580
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers.source_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.580
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers.source_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.580
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.580
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers.ui_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.580
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers.ui_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.581
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.581
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers.ui.source_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.581
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.checkers.ui.source_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.581
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.581
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.581
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.582
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.582
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core.cxx_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.582
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core.cxx_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.582
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.582
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core.cxx.source_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.583
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core.cxx.source_1.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.583
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.583
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core.source_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.583
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.core.source_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.583
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.583
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui.cxx_3.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui.cxx_3.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui.cxx.source_3.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.584
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui.cxx.source_3.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui.source_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.codan.ui.source_2.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core_5.4.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core_5.4.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.585
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.linux_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.linux_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.linux.source_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.linux.source_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.linux.x86_64_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.linux.x86_64_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.586
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.source_5.4.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.core.source_5.4.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.core_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.core_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.core.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.core.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.587
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.core_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.core_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.core.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.core.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.ui_6.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.588
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.ui_6.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.ui.source_6.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.mi.ui.source_6.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.ui_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.ui_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.ui.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.589
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.debug.ui.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.doc.isv_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.doc.isv_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.doc.user_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.doc.user_5.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.590
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb_4.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb_4.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb.source_4.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb.source_4.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.591
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb.ui_2.3.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb.ui_2.3.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb.ui.source_2.3.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.gdb.ui.source_2.3.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.source_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.source_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.592
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.ui_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.ui_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.ui.source_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.dsf.ui.source_2.3.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.593
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb.source_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb.source_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb.ui_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb.ui_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb.ui.source_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.594
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.gdb.ui.source_7.0.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.launch_7.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.launch_7.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.launch.source_7.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.launch.source_7.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.core_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.595
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.core_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.core.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.core.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.ui_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.ui_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.596
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.ui.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.make.ui.source_7.2.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.core_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.core_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.core.source_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.core.source_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.597
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.gnu.ui_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.gnu.ui_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.gnu.ui.source_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.gnu.ui.source_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.ui_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.ui_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.598
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.ui.source_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.managedbuilder.ui.source_8.1.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.sdk_8.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.sdk_8.1.1.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.ui_5.5.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.ui_5.5.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.ui.source_5.5.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.FileNotFoundException: /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/plugins/org.eclipse.cdt.ui.source_5.5.0.201302132326.jar (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:209)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:99)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:959)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt_8.1.2.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.599
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt_8.1.2.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.600
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.600
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gdb_7.0.0.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.600
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gdb_7.0.0.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.600
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.600
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gdb.source_7.0.0.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.600
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gdb.source_7.0.0.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.build_8.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.build_8.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.build.source_8.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.build.source_8.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.601
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.debug_7.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.debug_7.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.debug.source_7.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.debug.source_7.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.dsf_4.0.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.602
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.dsf_4.0.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.dsf.source_4.0.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.gnu.dsf.source_4.0.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.platform_8.1.2.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.platform_8.1.2.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.platform.source_8.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.platform.source_8.1.1.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Multiple problems occurred while downloading.
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.603
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.sdk_8.1.2.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:138)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 2 org.eclipse.equinox.p2.artifact.repository 4 1003 2013-06-10 13:30:58.604
+!MESSAGE Unable to write to repository: file:/home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/.
+!STACK 0
+java.io.IOException: Failed to create directory /home/tempuser/.eclipse/org.eclipse.platform_4.2.0_185596441/features/org.eclipse.cdt.sdk_8.1.2.201302132326.
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getOutputStream(SimpleArtifactRepository.java:951)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:259)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:208)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:162)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2013-06-10 13:34:11.918 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-06-10 13:36:23.379
+!MESSAGE Indexed 'societies' (12 sources, 631 headers) in 10.76 sec: 39,052 declarations; 89,385 references; 2 unresolved inclusions; 9 syntax errors; 221 unresolved names (0.17%)
+
+!ENTRY org.eclipse.jface 2 0 2013-06-10 13:37:21.401
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.401
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@41159ed3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@41159ed3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.401
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@726e5006,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.MakeHandlersGo@2847f49b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.MakeHandlersGo@2847f49b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.401
+!MESSAGE A conflict occurred for F4:
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@c0c00c6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@6806cd57,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@6806cd57,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.402
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@1693401c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@1d55f9d8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@1d55f9d8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.402
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.editor,Open Declaration,
+		Open an editor on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@7785e2f3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@76f6fcd2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@76f6fcd2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.402
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace,Declaration in Workspace,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.MakeHandlersGo@51507c02,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@7afd9102,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@7afd9102,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.402
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace,References in Workspace,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.MakeHandlersGo@1d3b5963,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@23698193,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,C/C++ Source,C/C++ Source Actions,true),
+		org.eclipse.ui.internal.MakeHandlersGo@23698193,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.402
+!MESSAGE A conflict occurred for ALT+CTRL+H:
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy,Open Call Hierarchy,
+		Open a call hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@63b9ec0e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@4338be48,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@4338be48,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-06-10 13:37:21.402
+!MESSAGE A conflict occurred for CTRL+SHIFT+H:
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@42548b72,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@3c8f0b63,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.MakeHandlersGo@3c8f0b63,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)

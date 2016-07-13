@@ -1,0 +1,9 @@
+configAgentFile: researchReport/step2/24/IDE/devices_test_AgentValues.aconf
+Num agents: 24
+Num days: 3000
+Num resources: 48
+SumUtil:6707669
+SumRes:380191
+Your results have been saved in researchReport/step2/24/IDE
+The simulation was named 24_48_IDE40
+The total number of seconds is 2127

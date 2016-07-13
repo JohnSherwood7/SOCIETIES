@@ -1,0 +1,205 @@
+
+#ifndef STATSTRACKER_H_
+#define STATSTRACKER_H_
+/*
+ * societies  Simulates societies and thier growth based on trade, experience and inventions.
+ * Copyright (C) 2011 Tony Ditta, Michael Koster
+ * 
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation; either version 2 of the License, or (at your
+ * option) any later version. 
+ *  
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License for more details. 
+ * 
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+
+#include <iostream>
+#include <vector>
+#include "globals.h"
+#include "marketplace.h"
+using namespace std;
+
+class Device;
+
+
+/**
+ * DayExchangeStats
+ */
+class DayExchangeStats
+{
+private:
+    vector<int> soldExchanges;   /**< length NUM_RESOURCES */
+    vector<int> boughtExchanges; /**< length NUM_RESOURCES */
+    struct deviceExchange {
+        int sold;
+        vector<int> bought;      /**< length NUM_RESOURCES */
+    };
+    vector< deviceExchange > deviceExchanges; /**< length NUM_DEVICE_TYPES */
+
+public:
+    DayExchangeStats();
+    vector<int> getSoldExchanges() { return soldExchanges; }
+    vector<int> getBoughtExchanges() { return boughtExchanges; }  // see above.
+    void addToSoldExchanges(int resId, int newVal) { soldExchanges[resId] += newVal; }
+    void addToBoughtExchanges(int resId, int newVal) { boughtExchanges[resId] += newVal; }
+};
+
+
+
+/**
+ * TradeStats
+ */
+class TradeStats
+{
+private:
+    vector<int> resTradeVolume;				/**< indexed by day #  */
+    vector<int> resTradeForDeviceVolume;		/**< indexed by day # */
+    vector< DayExchangeStats > dayResExchanges;		/**< length NUM_RESOURCES */
+    vector< vector <vector <vector<int> > > >resExchanges;/**< indexed by day first, then resId
+              then 0th is soldExchanges and 1st is boughtExchanges, both vectors of ints. */
+
+public:
+    TradeStats();
+    void dailyUpdate();
+    void newExchange(ResourcePair &pair);
+    vector<int> getResTradeVolume() { return resTradeVolume; };
+    vector<int> getResTradeForDeviceVolumn() { return resTradeForDeviceVolume; };
+};
+
+
+
+/**
+ * ProductionStats
+ */
+class ProductionStats
+{
+    vector<int> resGathered;			  /**< indexed by day # */
+    vector<vector<int> > resGatheredByAgent; 	  /**< indexed by agentId, then day */
+    vector<vector<int> > numAgentsGatheringByRes; /**< indexed by resId, then day */
+    vector<vector<int> > resGatheredByRes;        /**< indexed by resId, then day */
+    vector< vector < vector<int> > >resGatheredByResByAgent; /**< indexed by resId, then agentId, then day */
+    vector< vector<int> > resGatheredByDevice;    /**< indexed by device_name_t (first 4), then day */
+    vector< vector< vector<int> > > resGatheredByDeviceByRes; /**< indexed by device_name_t (first 4),
+                                                                 then resId, then day. */
+    vector< vector<int> > devicesMade;		  /**< indexed by device_name_t, then day */
+    vector< vector< vector<int> > > devicesMadeByRes; /**< indexed by device_name_t,
+                                                         then resId, then day */
+    vector< vector<int> > devicesMadeWithDevDevice; /**< indexed by device_name_t, day */ /* only for DEVMACHINE and DEVFACTORY */
+    /* Number of devDevices made for this resource  */
+    vector< vector< vector <int> > > devicesMadeWithDevDeviceByRes; /* only for DEVMACHINE and DEVFACTORY */
+				    /**< indexed by device_name_t, then resId, then day */
+    /* Each int is the total time spent by society without a device */
+    vector<int> timeSpentGatheringWithoutDevice; /**< indexed by day */
+    vector< vector<int> > timeSpentGatheringWithoutDeviceByAgent;
+				    /**< indexed by agentId, then day */
+    vector< vector<int> > timeSpentGatheringWithDevice; /**< indexed by device_name_t (first 4), then day */
+    /* Total time this agent spent gathering with a device. */
+    vector< vector< vector<int> > > timeSpentGatheringWithDeviceByAgent;
+				    /**< indexed by device_name_t (first 4), then agentId, then day. */
+    /* Time the society spent gathering devices each day */
+    vector< vector<int> > timeSpentMakingDevices; /**< indexed by device_name_t, then day. */
+     /* Time this agent spent gathering this device */
+    vector< vector< vector<int> > > timeSpentMakingDevicesByAgent;
+				    /**< indexed by device_name_t, then agentId, then day. */
+    /* Resources gathered with device / all resources gathered */
+    vector< vector<double> > percentResGatheredByDevice;
+				    /**< indexed by device_name_t (first 4), then day. */
+     /* Amount of resources gathered with this / all of this specific resource gathered */
+    vector< vector< vector<double> > > percentResGatheredByDeviceByRes;
+				    /**< indexed by device_name_t (first 4), then resId, then day. */
+
+    void calcResGatheredAndResGatheredByAgent();
+    void calcResGatheredByResByAgentAndNumAgentsGetheringByRes();
+    void calcResGatheredByDevice();
+    void calcResGatheredByDeviceByRes();
+    void calcDevicesMade();
+    void calcDevicesMadeByRes();
+    void calcDevicesMadeWithDevDevicesByRes();
+    void calcTimeSpentGatheringWithoutDevice();
+    void calcTimeSpentGatheringWithDeviceAndTimeSpentMakingDevicesByAgent();
+    void calcPercentResGatheredByDevice();
+    void calcPercentResGatheredByDeviceByRes();
+
+public:
+    ProductionStats();
+    void dailyUpdate ();
+    vector<int> getResGathered() {
+        cout << "-----test-----" << resGathered.size() << endl;
+        for (unsigned int i = 0; i < resGathered.size(); i++) {
+            cout << resGathered[i] << ", ";
+        }
+        return resGathered; };
+    vector< vector<int> > getDevicesMade() { return devicesMade; };
+    vector< vector<int> > getTimeSpentGatheringWithDevice() { return timeSpentGatheringWithDevice; };
+    vector< int > getTimeSpentGatheringWithoutDevice() { return timeSpentGatheringWithoutDevice; };
+    vector< vector<int> > getTimeSpentMakingDevices() { return timeSpentMakingDevices; };
+    vector< vector<double> > getPercentResGatheredByDevice() { return percentResGatheredByDevice; };
+    vector< vector<int> > getDevicesMadeWithDevDevice() { return devicesMadeWithDevDevice; };
+    static const bool DEBUG_PRODUCTIONSTATS = false;
+};
+
+
+class OtherStats
+{
+    /**
+     * The number of agents that are active on a given day.
+     * vector is indexed by day.
+     */
+    vector<int> activeAgents;
+    /**
+     * The sum of the resources held (I think) by all agents for each day.
+     * Vector is indexed by day.
+     */
+    vector<int> sumRes;
+    /**
+     * The sum of the resources held by each agent, for each day.
+     * Vectors are indexed by agentId and day.
+     */
+    vector< vector<int> > sumResByAgent;
+    /**
+     * The sum of the utilityToday values for agents, for each day.
+     * Vector is indexed by day.
+     */
+    vector<double> sumUtil;
+    /**
+     * The utilityToday values for each agent, for each day.
+     * Indexed by agentId and then day.
+     */
+    vector< vector<double> > sumUtilByAgent;
+    /*
+     * Outer vector: Each type of device
+     * Inner vector: The number of this type of device that is known
+     */
+    vector< vector<int> > numberOfInventedDevices;
+    //vector<int> numberOfDays;
+    //vector<int> agentIds;
+    //	double agentUtility;
+    //	int knownDevices;
+    void calcSumResourcesByAgent();
+    void calcSumUtility();
+    void calcNumDevicesInvented();
+    //Agent *tmpAgent;
+    //
+public:
+    OtherStats();
+    void dailyUpdate();
+    int getSumResBack()  {return sumRes.back();};
+    int getSumUtilBack() { return sumUtil.back();};
+    vector<double> getSumUtil() { return sumUtil; };
+    vector<int> getActiveAgents() { return activeAgents; };
+    vector<int> getSumRes() { return sumRes; };
+    void getSumResByAgent();
+    static const bool DEBUG = false;
+    static const bool DEBUG_OTHERSTATS = false;
+    static const bool ENTER_EXIT_METHODS = false;
+};
+
+#endif /* STATSTRACKER_H_ */

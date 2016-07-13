@@ -1,0 +1,77 @@
+#include <stdlib.h>
+
+
+#include "globals.h"
+#include "utils.h"
+#include "options.h"
+#include "logging.h"
+#include "statstracker.h"
+
+
+
+Globals glob;
+Utils util;
+OtherStats oStats;
+
+
+void runSimulation(int runNum)
+{
+    glob.setAdvancedOptions();
+
+    if (glob.noRunSet) {
+        glob.printConfig();
+        exit(0);
+    }
+
+    glob.setGlobalMarketPlaces();
+    glob.setGlobalStats();
+//#if 0
+
+    glob.setGlobalResourceValues();
+//#endif
+    if (runNum != 0) {
+#if 0
+        glob.reinitialize();
+#endif
+    }
+
+    glob.startTimer();
+
+    for (int i = glob.START_DAY; i < glob.NUM_DAYS; i++) {
+        LOG(1) << "Day " << i;
+        util.agentsTradeDevices();
+        util.agentsProduceDevices();
+        util.agentsTrade();
+        util.agentsWork();
+        util.agentsTrade();
+        util.agentsInvent();
+        util.endDay();
+        util.dayAnalysis(i);
+        util.endDayDecay();
+        util.removeOrSave(i);
+    }
+
+    glob.endTimer();
+
+    LOG(1) << "Ending simulation";
+    util.endSim();
+
+    cout << "The total number of seconds is " << (glob.endTime - glob.startTime) << endl;
+}
+
+
+int main(int argc, char *argv[])
+{
+    glob = Globals();
+    int result = parse_args(argc, argv);
+    if (result < 0) {
+        cerr << "Error in parse_args: exiting now." << endl;
+    	return 0;
+    }
+    readConfigFile();
+    glob.initGlobalStructures();
+
+    for (int i = 0; i < glob.batchNumRuns; i++) {
+        runSimulation(i);
+    }
+}

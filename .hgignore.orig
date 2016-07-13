@@ -1,0 +1,10 @@
+syntax: glob
+*.o
+*.a
+*~
+\#*\#
+.\#*
+*.orig
+*.rej
+src/cpp/societies
+.metadata/*

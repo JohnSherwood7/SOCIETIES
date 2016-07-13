@@ -1,0 +1,65 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+//#include <map>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+//#include <algorithm>
+//#include <cmath>
+//#include <numeric>
+//#include <cstdio>
+//#include <set>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+//#include <boost/filesystem.hpp>
+//#include <boost/python.hpp>
+//#include <cctype>
+//#include <vector>
+//#include <queue>
+//#include "ran.h"
+//#include <stdio.h>      /* printf */
+//#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+//#include <limits>
+
+
+//namespace po = boost::program_options;
+using namespace std;
+
+int main()
+{
+    ofstream file;
+    file.open("temp.txt");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            file << i << ",\n";
+        }
+    }
+    file.close();
+    fstream f;
+    f.open("temp.txt");
+    string line;
+    while(getline(f, line)) {
+        stringstream sline(line);       // make a stringstream of the line
+        cout << line << endl;
+        cout << line.size() << endl;
+//        f.seekp(line.size()-1);
+//        f.write("a,\n",4);
+    }
+    f.close();
+
+}

@@ -1,0 +1,10 @@
+configAgentFile: homoChart/3_48/devices_test_AgentValues.aconf
+configAgentFile: homoChart/3_48/devices_test_AgentValues.aconf
+Num agents: 3
+Num days: 3000
+Num resources: 48
+SumUtil:372581
+SumRes:6143
+Your results have been saved in homoChart/3_48
+The simulation was named 3_48
+The total number of seconds is 47

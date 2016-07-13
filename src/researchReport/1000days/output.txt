@@ -1,0 +1,19 @@
+configAgentFile: homoChart/1000days/devices_test_48_48_AgentValues.aconf
+configAgentFile: homoChart/1000days/devices_test_48_48_AgentValues.aconf
+Num agents: 48
+Num days: 1000
+Num resources: 48
+SumUtil:12215986
+SumRes:650672
+Your results have been saved in homoChart/1000days/
+The simulation was named 48_48
+The total number of seconds is 1241
+configAgentFile: homoChart/1000days/devices_test_48_48_AgentValues.aconf
+Num agents: 48
+Num days: 1000
+Num resources: 48
+SumUtil:12224456
+SumRes:646882
+Your results have been saved in homoChart/1000days/
+The simulation was named 48_48
+The total number of seconds is 1334

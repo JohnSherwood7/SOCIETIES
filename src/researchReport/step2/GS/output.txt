@@ -1,0 +1,8 @@
+Num agents: 18
+Num days: 3000
+Num resources: 24
+SumUtil:5167169
+SumRes:1166817
+Your results have been saved in researchReport/step2/GS
+The simulation was named GS
+The total number of seconds is 12971

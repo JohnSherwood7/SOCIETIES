@@ -1,0 +1,16 @@
+Num agents: 18
+Num days: 3000
+Num resources: 24
+SumUtil:4868674
+SumRes:762309
+Your results have been saved in researchReport/step3/TP/100
+The simulation was named TP100
+The total number of seconds is 3888
+Num agents: 18
+Num days: 5000
+Num resources: 24
+SumUtil:4619319
+SumRes:705576
+Your results have been saved in researchReport/step3/TP/100
+The simulation was named TP100
+The total number of seconds is 6196

@@ -1,0 +1,55 @@
+##############################################################################################
+# Title:    runPytests
+# Purpose:  Execute the societies python program -- multiple times 
+#           save results of a batch of simulations
+#           keep a log of runtimes and output
+##############################################################################################
+#!/bin/ksh
+
+s=1                  # scenario: 1-no trade/no tools, 2-trade/no tools, 3-trade/tools, 4-trade/higher-order devices
+num_agents=2
+num_resources=2
+conf_options=
+
+#for i in 2.0_lifetime1 1.5_lifetime 1.17_lifetime1 1.16_lifetime1 1.1_lifetime1
+#do
+#aconf_options=_n${i}
+
+r=1
+max_runs=2
+begin_time=$(date +%s)
+
+### with "echo", use ">" to overwrite, ">>" to append
+echo "***** BEGIN *****"> ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+echo "steepness = $i">> ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+echo "num_agents = $num_agents">> ~/workspace/ssocieties/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+echo "num_resources = $num_resources">> ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+echo "aconf_options = $aconf_options">> ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+echo "conf_options = $conf_options">> ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+echo "max_runs = $max_runs">> ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+
+
+while (($r <= $max_runs))
+do
+
+start_time=$(date +%s)
+
+### when using variables as part of a longer phrase, put them in {}
+#./societies -v 0 -p ~/workspace/societies/conf/verify_S${s}_${num_agents}_${num_resources}.conf \
+#                         -z ~/workspace/societies/conf/verify_${num_agents}_${num_resources}${aconf_options}.aconf \
+./societies -v 0 -p ~/workspace/societies/conf/defaultValues.conf \
+                         -z ~/workspace/societies/conf/AgentTypes.csv \
+                         -s ~/workspace/societies/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options} \
+                         -t r$r 
+ #                        2>&1 | tee screenout.log
+ #                        2>&1 > screenout.log
+                         
+finish_time=$(date +%s)
+echo "***** TEST RUN # $r DURATION: $((finish_time - start_time)) sec *****">> ~/workspace/summer2014/sugarpy/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+(( r++))
+
+done
+echo "***** TOTAL DURATION: $((finish_time - begin_time)) secs *****">> ~/workspace/summer2014/sugarpy/output/Verify/S${s}_batch_${num_agents}_${num_resources}${conf_options}${aconf_options}.log
+
+
+done

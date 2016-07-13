@@ -1,0 +1,40 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+#include <iostream>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+#include <boost/filesystem.hpp>
+//#include <cctype>
+//#include "ran.h"
+
+//namespace po = boost::program_options;
+using namespace std;
+
+int main(int ac, char* av[])
+{
+    string SAVE_FOLDER = "~/Documents/research/societies/myTest/myTestResults";
+    if (! boost::filesystem::exists(SAVE_FOLDER)) {
+        boost::filesystem::path p(SAVE_FOLDER);
+        if (boost::filesystem::create_directory(p)) {
+            cout << "success" << endl;
+        }
+    }
+}
+
+
+

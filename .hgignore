@@ -1,0 +1,22 @@
+syntax: glob
+*.o
+*.a
+*~
+\#*\#
+.\#*
+*.orig
+*.rej
+src/cpp/societies
+.metadata/*
+re:^src/cpp/docs/html/
+re:^src/cpp/\.nfs00000000009f43fe0000000f$
+re:^conf/test\.conf$
+re:^conf/trade_devices\.conf$
+re:^conf/trade_tools\.conf$
+re:^myTest/\.cproject$
+re:^myTest/\.project$
+re:^myTest/Debug/main\.d$
+re:^myTest/Debug/makefile$
+re:^myTest/Debug/myTest$
+re:^myTest/Debug/objects\.mk$
+re:^myTest/Debug/sources\.mk$

@@ -1,0 +1,449 @@
+
+#include <algorithm>
+#include <vector>
+#include <limits>
+#include <list>
+#include <numeric>
+#include <boost/foreach.hpp>
+#include "device.h"
+#include "devmarketplace.h"
+#include "agent.h"
+
+using namespace std;
+
+
+
+void DeviceMarketplace::tradeDevices(device_name_t device)
+{
+	for (int aId = 0; aId < glob.NUM_AGENTS;  aId ++)
+	{
+		glob.agent[aId]->newDeviceTrade(device);
+		util.deviceExists(device);
+	}
+	if (util.deviceExists(device))
+	{
+		for (int round = 0; round < glob.DEVICE_TRADE_ROUNDS; round ++)
+		{
+			cout << "Device type " << device << " ** ROUND " << round << " **" << endl;
+			genDevicePairs(device);
+		}
+	}
+}
+
+
+/*
+ * An agent is randomly select and chooses the agent it most prefers
+ * to trade devices with, if that agent has already traded this round or
+ * if the two agents have already traded this day, the agent selects its
+ * next preference and so on. If the agent has no preferred agents, all
+ * the preferred agents have already traded this round, or the agent has
+ * already been paired with all its preference today, the agent gets a
+ * random partner.
+ */
+void DeviceMarketplace::genDevicePairs(device_name_t device)
+{
+    Agent *partner;
+    
+    BOOST_FOREACH(Agent *ag, glob.agent) {
+        agentList.push_back(ag);
+        ag->deviceBoughtThisRound.clear();
+    }
+
+    pairs.clear();
+
+    /*
+     * While there are agents who have not traded, agents get paired up.
+     */
+    while (agentList.size() > 1) {
+        bool traded = false;
+        /*
+         * The currentTrader is randomly selected from the list of agents
+         * that haven't traded
+         */
+        int loc = glob.random_int(0, agentList.size()); // grab random agent location
+        vector<Agent *>::iterator it = agentList.begin(); // iterator for the agent list
+        advance(it, loc);	     // cannot use ++ or + loc with list iterators.
+        Agent *currentTrader = *it;  // Agent * is the value at the iterator.
+        agentList.erase(it);         // remove agent at index 'it' from the list
+
+        /*
+         * The agent returns an ordered list of the agents that it wants to
+         * trade with (the first agent in the list is the most preferred).
+         */
+        vector<int> prefDeviceTraders = currentTrader->preferredDeviceTraders(device);
+        /*
+         * Check each agent in currentTrader's desired trade partners to see
+         * if that agent is available for trade.
+         */
+        for (unsigned pref = 0; pref < prefDeviceTraders.size(); pref++) {
+
+            /*
+             * If the preferred agent has not traded this round and hasn't 
+             * traded this device with currentTrader today, they immediately
+             * get paired up.
+             */
+            /* check if glob.agent[pref] is in agentList */
+            bool tmpNotTraded = (std::find(agentList.begin(), agentList.end(), glob.agent[pref]) == agentList.end());
+            
+            vector<Agent *>::iterator hasTradedThisRound =
+                std::find(currentTrader->tradedDeviceWithThisRound.begin(),
+                          currentTrader->tradedDeviceWithThisRound.end(),
+                          glob.agent[pref]);
+            vector<Agent *>::iterator endOfCurrentTraderVect = currentTrader->tradedDeviceWithThisRound.end();
+            // if preferred agent has not traded yet this round
+            // if preferred agent has not traded this device today with the current agent
+            if ( ! tmpNotTraded && (hasTradedThisRound == endOfCurrentTraderVect)) {
+                // set partner = to partner we are working with at the moment
+                it = agentList.begin();
+                hasTradedThisRound = std::find(agentList.begin(), agentList.end(), glob.agent[pref]);
+                advance(it, distance(agentList.begin(), hasTradedThisRound));
+                partner = *it;
+                // remove the partner from the viable partners list
+                agentList.erase(it);
+                traded = true;
+                break;
+            }
+        }
+
+        /*
+         * If none of the preferred agents are available, currentTrader
+         * searches for an agent that it hasn't traded the current device
+         * with today.
+         */
+        if (! traded) {
+            for (unsigned partners = 0; partners < agentList.size(); partners++) {
+                if ( (std::find(currentTrader->tradedDeviceWithThisRound.begin(),
+                                currentTrader->tradedDeviceWithThisRound.end(),
+                                glob.agent[partners])) == currentTrader->tradedDeviceWithThisRound.end() ) {
+                    it = agentList.begin();
+                    advance(it, partners);
+                    partner = *it;
+                    agentList.erase(it);
+                    traded = true;
+                    break;
+                }
+            }
+        }
+
+        /*
+         * If no partner has been found for currentTrader yet, a partner is
+         * assigned randomly.
+         */
+        if (! traded) {
+            loc = glob.random_int(0, agentList.size());
+            it = agentList.begin();
+            advance(it, loc);	// cannot use ++ or + loc with list iterators.
+            partner = *it;
+            agentList.erase(it);
+        }
+
+        // add the pairs to the end of the pairs list.
+        pairs.push_back(DevicePair(currentTrader, partner, device));
+    }
+
+    for (unsigned eachPair = 0; eachPair < pairs.size(); eachPair++){
+        pairs[eachPair].pairDeviceTrade();
+    }
+
+}
+
+DevicePair::DevicePair(Agent *agentA, Agent *agentB, device_name_t deviceType) {
+    this->deviceType = deviceType;
+    this->agentA = agentA;
+    this->agentB = agentB;
+    this->deviceBuyer = agentA;
+    this->deviceSeller = agentB;
+    currentTradeAttempts = 0;
+    this->deviceSellerUtilGain = 0;
+    this->deviceSellerUtilLoss = 0;
+    this->deviceBuyerUtilGain = 0;
+    this->deviceBuyerUtilLoss = 0;
+    this->deviceBuyerPick = 0;
+    vector<int> finalOffer;
+}
+
+/**
+ * The agents begin trading devices by creating the list of offers
+ * made by the deviceSeller (who offers devices) and deviceBuyer (who
+ * offers a menu of resources)
+ */
+void DevicePair::pairDeviceTrade() {
+    if (currentTradeAttempts == 0) {
+        // Each agent notes that it has traded with the other agent this round
+        (deviceSeller->tradedDeviceWithThisRound).push_back(deviceBuyer);
+        (deviceBuyer->tradedDeviceWithThisRound).push_back(deviceSeller);
+    }
+    if (deviceSeller->inSimulation && deviceBuyer->inSimulation) {
+        double tempMax = 0.0;
+        for (int devId = 0; devId < glob.NUM_RESOURCES; devId++) {
+            if (deviceSeller->devProp[deviceType][devId].deviceExperience > tempMax) {
+                tempMax = deviceSeller->devProp[deviceType][devId].deviceExperience;
+            }
+        }
+        if (currentTradeAttempts < glob.DEVICE_TRADE_ATTEMPTS && tempMax >= 1.0) {
+            // One agent is the device buyer, the other agent is the device seller
+            deviceBuyerSelling = deviceBuyerAvailableRes();
+            // The device seller offers the devices that it knows how to build and
+            // for which it has adequate time and resources
+            deviceSellerSelling = deviceSellerAvailableDevices();
+            if (deviceSellerSelling.size() > 0 && deviceBuyerSelling.size() > 0) {
+                // The agents are given another chance to trade,
+                // switching roles of device seller and buyer.
+                makePicks();
+            } else {
+                switchAndTryAgain();
+            }
+        }
+        else if (currentTradeAttempts < glob.DEVICE_TRADE_ATTEMPTS) {
+            // The agents are given another chance to trade,
+            // switching roles of device seller and buyer.
+            switchAndTryAgain();
+        }
+    }
+}
+
+vector<int> DevicePair::deviceBuyerAvailableRes() {
+    vector< pair <double, int> > deviceBuyerEndDay;
+    pair<double, int> resUtilAndId;
+    for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+        if (deviceBuyer->resProp[resId].held > 0) {
+            resUtilAndId = make_pair(deviceBuyer->resProp[resId].endDayUtilities, resId);
+            deviceBuyerEndDay.push_back(resUtilAndId);
+        }
+    }
+    sort(deviceBuyerEndDay.begin(), deviceBuyerEndDay.end());
+    vector<int> deviceBuyerSelling;
+    int menuSize = min(glob.MENU_SIZE, (int)deviceBuyerEndDay.size());
+    for (int i = 0; i < menuSize; i++) {
+        deviceBuyerSelling.push_back(deviceBuyerEndDay[i].second);
+    }
+    return deviceBuyerSelling;
+}
+
+vector<int> DevicePair::deviceSellerAvailableDevices() {
+    vector<int> availableDevices;
+    for (int devId = 0; devId < NUM_DEVICE_TYPES; devId++) {
+        if (deviceSeller->devProp[deviceType][devId].deviceExperience >= 1) {
+            pair< double, vector<int> > necessaryTimeAndRes = glob.discoveredDevices[deviceType][devId]->worstCaseConstruction(*deviceSeller);
+            double necessaryTime = necessaryTimeAndRes.first;
+            vector<int> necessaryRes = necessaryTimeAndRes.second;
+            if ( find( deviceSeller->deviceBoughtThisRound.begin(), deviceSeller->deviceBoughtThisRound.end(), devId ) 
+                 == (deviceSeller->deviceBoughtThisRound).end()           // Test if devId is NOT already in deviceBoughtThisRound
+                 && deviceSeller->resBundleHeldCheck(necessaryRes)
+                 && deviceSeller->setAsideTime + necessaryTime < glob.DAY_LENGTH ) {
+               availableDevices.push_back(devId);
+            }
+        }
+    }
+    return availableDevices;
+}
+
+void DevicePair::makePicks () {
+    double deviceBuyerMaxUtil = 0;
+    int deviceBuyerMaxUtilIndex = -1;
+    for (unsigned i = 0; i < deviceSellerSelling.size(); i++) {	// Use an iterator instead
+        int devId = deviceSellerSelling[i];
+        if (deviceBuyer->buyerDeviceValue(devId, deviceType) > deviceBuyerMaxUtil) {
+            deviceBuyerMaxUtil = deviceBuyer->buyerDeviceValue(devId, deviceType);
+            deviceBuyerMaxUtilIndex = devId;
+        }
+        if ( deviceBuyer->devProp[deviceType][devId].devicesToMake > 0
+             && glob.discoveredDevices[deviceType][devId]->costs(*deviceBuyer) > deviceBuyerMaxUtil ) {
+            deviceBuyerMaxUtil = glob.discoveredDevices[deviceType][devId]->costs(*deviceBuyer);
+            deviceBuyerMaxUtilIndex = devId;
+        }
+    }
+    deviceBuyerUtilGain = deviceBuyerMaxUtil;
+    deviceBuyerPick = deviceBuyerMaxUtilIndex;
+    if (deviceBuyerPick != -1) {
+        deviceSellerUtilLoss = deviceSeller->sellerDeviceValue(deviceBuyerPick, deviceType);
+        calcOffers();
+    } else {
+        switchAndTryAgain();
+    }
+}
+
+void DevicePair::calcOffers () {
+    vector<int> deviceSellerOffers = calcDeviceSellerOffers();
+    vector<int> deviceBuyerOffers = calcDeviceBuyerOffers();
+    
+    
+    for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+        finalOffer.push_back((deviceSellerOffers[resId] + deviceBuyerOffers[resId]) / 2.0);
+        if (finalOffer[resId] > deviceBuyer->resHeld(resId)) {
+            finalOffer[resId] = deviceBuyer->resHeld(resId);
+        }
+    }
+    checkGains();
+}
+
+vector<int> DevicePair::calcDeviceSellerOffers () {
+    vector<int> deviceSellerMarginalUtilities;
+    vector<int> deviceSellerOffers;
+    double deviceSellerMUMax = 0.0;
+    int deviceSellerMUMaxId = -1;
+    double MU = 0.0;
+    for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+        if ( find( deviceBuyerSelling.begin(), deviceBuyerSelling.end(), resId )
+             != deviceBuyerSelling.end() ) {		// Test if resId is in deviceBuyerSelling
+            MU = deviceSeller->utilCalc(resId);
+        } else {
+            MU = 0.0;
+        }
+        deviceSellerMarginalUtilities.push_back(MU);
+        if (MU > deviceSellerMUMax) {
+            deviceSellerMUMax = MU;
+            deviceSellerMUMaxId = resId;
+        }
+        deviceSellerOffers.push_back(0);
+    }
+    
+    double deviceSellerUtilGain = 0.0;
+    while ( deviceSellerUtilGain < deviceSellerUtilLoss && deviceSellerMUMax > 0 ) {
+        deviceSellerUtilGain += deviceSeller -> tempUtilCalc(deviceSellerMUMaxId, deviceSellerOffers[deviceSellerMUMaxId]);
+        deviceSellerOffers[deviceSellerMUMaxId] += 1;
+        if (deviceBuyer->resHeld(deviceSellerMUMaxId) > deviceSellerOffers[deviceSellerMUMaxId]) {
+            MU = deviceSeller->tempUtilCalc(deviceSellerMUMaxId, deviceSellerOffers[deviceSellerMUMaxId]);
+        } else {
+            MU = 0.0;
+        }
+        deviceSellerMarginalUtilities[deviceSellerMUMaxId] = MU;
+        vector<int>::iterator maxPointer = 
+                        max_element(deviceSellerMarginalUtilities.begin(), deviceSellerMarginalUtilities.end());
+        deviceSellerMUMax = *maxPointer;
+        deviceSellerMUMaxId = maxPointer - deviceSellerMarginalUtilities.begin();
+    }
+
+    return deviceSellerOffers;
+}
+
+vector<int> DevicePair::calcDeviceBuyerOffers () {
+    double max_double = numeric_limits<double>::max();
+    vector<int> deviceBuyerMarginalUtilities;
+    vector<int> deviceBuyerOffers;
+    double deviceBuyerMUMin = max_double;
+    int deviceBuyerMUMinId = -1;
+    double MU = 0.0;
+    for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+        if ( find( deviceBuyerSelling.begin(), deviceBuyerSelling.end(), resId )
+             != deviceBuyerSelling.end() ) {		// Test if resId is in deviceBuyerSelling
+            MU = deviceBuyer->tempUtilCalc(resId, -1);
+        } else {
+            MU = max_double;
+        }
+        deviceBuyerMarginalUtilities.push_back(MU);
+        if (MU < deviceBuyerMUMin) {
+            deviceBuyerMUMin = MU;
+            deviceBuyerMUMinId = resId;
+        }
+        deviceBuyerOffers.push_back(0);
+    }
+
+    double deviceBuyerUtilLoss = 0.0;
+    while ( deviceBuyerUtilLoss < deviceBuyerUtilGain && deviceBuyerMUMin < max_double ) {
+        deviceBuyerOffers[deviceBuyerMUMinId] += 1;
+        deviceBuyerUtilLoss += deviceBuyer -> tempUtilCalc(deviceBuyerMUMinId, -deviceBuyerOffers[deviceBuyerMUMinId]);
+        if (deviceBuyer->resHeld(deviceBuyerMUMinId) > deviceBuyerOffers[deviceBuyerMUMinId]) {
+            MU = deviceBuyer->tempUtilCalc(deviceBuyerMUMinId, -deviceBuyerOffers[deviceBuyerMUMinId] - 1);
+        } else {
+            MU = max_double;
+        }
+        deviceBuyerMarginalUtilities[deviceBuyerMUMinId] = MU;
+        vector<int>::iterator minPointer = 
+                        min_element(deviceBuyerMarginalUtilities.begin(), deviceBuyerMarginalUtilities.end());
+        deviceBuyerMUMin = *minPointer;
+        deviceBuyerMUMinId = minPointer - deviceBuyerMarginalUtilities.begin();
+    }
+    deviceBuyerOffers[deviceBuyerMUMinId] -= 1;
+    
+    return deviceBuyerOffers;
+}
+
+void DevicePair::checkGains () {
+    deviceBuyerUtilLoss = deviceBuyer->costOfResourceBundle(finalOffer);
+    deviceSellerUtilGain = deviceSeller->gainOfResourceBundle(finalOffer);
+    if (deviceBuyerUtilLoss < deviceBuyerUtilGain && deviceSellerUtilLoss < deviceBuyerUtilGain) {
+        makeTrade();
+    } else {
+        switchAndTryAgain();
+    }
+}
+
+void DevicePair::makeTrade () {
+
+    deviceSeller->sellsDevice(deviceBuyerPick, deviceType);
+    deviceBuyer->buysDevice(deviceBuyerPick, deviceType);
+    
+    for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {    // Use iterators
+        if (finalOffer[resId] > 0) {
+            deviceSeller->sells(resId, finalOffer[resId]);
+            deviceBuyer->buys(resId, finalOffer[resId]);
+        }
+        cout << "agent " << deviceBuyer->name << " gave up " <<
+                      finalOffer[resId] << " of resource " << resId << endl;
+        cout << "agent " << deviceSeller->name << " gave up " <<
+              deviceType << " for " << deviceBuyerPick << endl;
+        cout << "Just now, agent " << deviceSeller ->name <<" gained " <<
+              deviceSellerUtilGain << " and lost " << deviceSellerUtilLoss << endl;
+        cout << "Furthermore, agent " << deviceBuyer->name << " gained " <<
+              deviceBuyerUtilGain << " and lost " << deviceBuyerUtilLoss << endl;
+    }
+
+    agentMemoryUpdate();
+    tradeStatsUpdate();
+    currentTradeAttempts += 1;	/* The agents are given another chance to trade. */
+    pairDeviceTrade();
+}
+
+
+
+/**
+ * The agents get another trade attempt -- switching roles of buyer
+ * and seller.
+ */
+void DevicePair::switchAndTryAgain () {
+    currentTradeAttempts += 1;
+    if (deviceBuyer == agentA) {
+        deviceBuyer = agentB;
+        deviceSeller = agentA;
+    } else {
+        deviceBuyer = agentA;
+        deviceSeller = agentB;
+    }
+    pairDeviceTrade();
+}
+
+
+
+/**
+ * Agents remember the devices they've bought and the surplus from the trades.
+ */
+void DevicePair::agentMemoryUpdate()
+{
+	for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+		deviceBuyer->resProp[resId].endDayUtilities = deviceBuyer->utilCalc(resId);
+		deviceSeller->resProp[resId].endDayUtilities = deviceSeller->utilCalc(resId);
+	}
+	deviceSeller->agentDeviceTradeMemory[deviceType][deviceBuyer->name][0]
+	    += deviceSellerUtilGain - deviceSellerUtilLoss;
+	deviceBuyer->agentDeviceTradeMemory[deviceType][deviceBuyer->name][0]
+		+= deviceBuyerUtilGain - deviceBuyerUtilLoss;
+	deviceBuyer->devProp[deviceType][deviceBuyerPick].devicePrices.pop_back();
+	vector<double>::iterator it = deviceBuyer->devProp[deviceType][deviceBuyerPick].devicePrices.begin();
+	deviceBuyer->devProp[deviceType][deviceBuyerPick].devicePrices.insert(it, deviceBuyerUtilLoss);
+	deviceBuyer->deviceBoughtThisRound.push_back(deviceBuyerPick);
+	deviceSeller->devProp[deviceType][deviceBuyerPick].devicePrices.pop_back();
+	it = deviceSeller->devProp[deviceType][deviceBuyerPick].devicePrices.begin();
+	deviceSeller->devProp[deviceType][deviceBuyerPick].devicePrices.insert(it, -deviceSellerUtilGain + deviceSellerUtilLoss);
+}
+
+/**
+ * Agent stats are updated to be saved by the statsTracker classes.
+ */
+void DevicePair::tradeStatsUpdate()
+{
+	deviceBuyer->unitsSoldForDevicesToday += accumulate(finalOffer.begin(), finalOffer.end(), 0);
+	deviceBuyer->devProp[deviceType][deviceBuyerPick].devicesBoughtTotal += 1;
+	deviceSeller->devProp[deviceType][deviceBuyerPick].devicesSoldTotal += 1;
+}
+

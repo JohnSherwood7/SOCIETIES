@@ -1,0 +1,16 @@
+Num agents: 9
+Num days: 3000
+Num resources: 24
+SumUtil:2315284
+SumRes:371582
+Your results have been saved in researchReport/step1b/9_24
+The simulation was named 9_24
+The total number of seconds is 1647
+Num agents: 9
+Num days: 5000
+Num resources: 24
+SumUtil:2508948
+SumRes:402704
+Your results have been saved in researchReport/step1b/9_24
+The simulation was named 9_24
+The total number of seconds is 2770

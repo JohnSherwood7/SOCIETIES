@@ -1,0 +1,53 @@
+Agent file does not exist;
+Simulation variables:
+Day length is 600
+Number of days is 3000
+Number of agents is 12
+Number of resources is 24
+Number of groups/types of agents is 1
+
+Trade Context variables: 
+Number of resource trade rounds is 40
+Epsilon of trade 0.1
+Number of resource trade attempts is 8
+Number of device trade rounds is 36
+Number of device trade attempts is 4
+Menu size is 6
+
+Input booleans 
+A resource will be removed: 0
+Trade exists: 1
+Devices exist: 1
+
+Agent Capacity variables: 
+Device trade memory length is 5
+Device production memory length is 5
+Daily experience loss for idle resources is 3
+Days of device to hold 2
+
+Extraction Efficiency variables: 
+Factor of a tool 3
+Lifetime of a tool 150
+Factor of a machine 9
+Lifetime of a machine 300
+Factor of a factory 27
+Lifetime of a factory 600
+Factor of a industry 81
+Lifetime of a industry 1200
+Factor of a device machine 9
+Lifetime of a device machine 600
+Factor of a device factory 9
+Lifetime of a device factory 600
+
+Production Efficiency variables: 
+Number of resources to make a tool is 5
+Experience the inventor gains for the invention is 6
+Number of components that go into a device is 6
+Amount of decay devices experience on a daily basis 3
+Production Epsilon is 0
+
+Innovation Volume/Speed variables: 
+Minimum resources required for device construction is 3
+Minimum device experience for an agent that holds the device is 2
+Minimum devices made recently to consider obtaining a device making device is 5
+

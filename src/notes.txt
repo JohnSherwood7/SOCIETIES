@@ -1,0 +1,4 @@
+Resource heterogeneity:
+1. csv file: change "type n" to group number, an int. So need to add one more parameter in globals and personal values.
+2. gen_config: check total number of agents and a new to generate aconf file.
+

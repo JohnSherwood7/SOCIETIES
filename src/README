@@ -1,0 +1,3 @@
+Test passed on 07-10-2013, with changeset 06436958c680
+Test run this way:
+./societies ../../conf/tool_test.conf -s /tmp/tool_test/ >& /tmp/.tout

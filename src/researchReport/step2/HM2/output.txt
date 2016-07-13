@@ -1,0 +1,8 @@
+Num agents: 18
+Num days: 3000
+Num resources: 24
+SumUtil:4914095
+SumRes:795654
+Your results have been saved in researchReport/step2/HM2
+The simulation was named HM2
+The total number of seconds is 4528

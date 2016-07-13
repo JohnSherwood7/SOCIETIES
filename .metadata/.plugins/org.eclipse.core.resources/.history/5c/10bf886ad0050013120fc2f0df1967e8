@@ -1,0 +1,66 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+//#include <map>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+//#include <algorithm>
+//#include <cmath>
+//#include <numeric>
+//#include <cstdio>
+//#include <set>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+//#include <boost/filesystem.hpp>
+//#include <boost/python.hpp>
+//#include <cctype>
+//#include <vector>
+//#include <queue>
+//#include "ran.h"
+//#include <stdio.h>      /* printf */
+//#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+//#include <limits>
+
+
+//namespace po = boost::program_options;
+using namespace std;
+
+int main()
+{
+    ofstream file;
+    file.open("temp.txt");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            file << i << ",\n";
+        }
+    }
+    file.close();
+    fstream f;
+    f.open("temp.txt", ios::app);
+//    cout << file.tellp() << endl;
+////    if (!file.eof()) {
+    string line;
+    getline(file, line);   // read line from file into string
+    stringstream sline(line);       // make a stringstream of the line
+//    cout << line << endl;
+//    cout << line.size() << endl;
+    file.seekp(line.size()-1);
+    file.write("a",1);
+    f.close();
+
+}

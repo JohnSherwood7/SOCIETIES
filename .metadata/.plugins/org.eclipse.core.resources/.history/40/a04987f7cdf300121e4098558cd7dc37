@@ -1,0 +1,96 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+//#include <fstream>
+#include <iostream>
+//#include <algorithm>
+#include <cmath>
+//#include <numeric>
+//#include <cstdio>
+//#include <set>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+//#include <boost/filesystem.hpp>
+//#include <boost/python.hpp>
+//#include <cctype>
+#include <vector>
+//#include <queue>
+//#include "ran.h"
+//#include <stdio.h>      /* printf */
+//#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+//#include <limits>
+
+
+//namespace po = boost::program_options;
+using namespace std;
+
+int main()
+{
+    double aRatio = 1.2;
+    double bRatio = 0.5;
+    double tradeRatio;
+    double aConst = 0.2;
+    double bConst = 0.8;
+    double aPower;
+    double bPower;
+    double ratio = 10.0 / (aConst + bConst);
+    // original
+    aPower = aConst;
+    bPower = bConst;
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    cout << "original = " << tradeRatio << " a = " << aPower << " b = " << bPower << endl;
+
+    // weighted gemotric mean
+    if (aPower > bPower) {
+        aPower = aPower / bPower * 10;
+        bPower = 1;
+    } else if (bPower > aPower) {
+        bPower = bPower / aPower * 10;
+        aPower = 1;
+    }
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    cout << "40 times = " << tradeRatio << " a = " << aPower << " b = " << bPower << endl;
+
+    // square both (scale to 10 first)
+    aPower = pow(aConst * ratio, 2);
+    bPower = pow(bConst * ratio, 2);
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    cout << "square (both) = " << tradeRatio << " a = " << aPower << " b = " << bPower << endl;
+
+    // square the larger one (scale to 10 first)
+    aPower = aConst * ratio;
+    bPower = bConst * ratio;
+    if (aPower > bPower) {
+        aPower = aPower * aPower;
+    } else if (bPower > aPower) {
+        bPower = bPower * bPower;
+    }
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    cout << "square (larger) = " << tradeRatio << " a = " << aPower << " b = " << bPower << endl;
+
+    // exponential
+//    aPower = aConst * ratio;
+//    bPower = bConst * ratio;
+    if (aConst > bConst) {
+        aPower = exp(aConst);
+    } else if (bConst > aConst) {
+        bPower = exp(bConst);
+    }
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    cout << "exp (both) = " << tradeRatio << " a = " << aPower << " b = " << bPower << endl;
+
+}

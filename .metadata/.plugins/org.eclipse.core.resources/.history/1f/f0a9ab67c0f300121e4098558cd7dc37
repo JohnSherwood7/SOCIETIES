@@ -1,0 +1,95 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+//#include <fstream>
+#include <iostream>
+//#include <algorithm>
+#include <cmath>
+//#include <numeric>
+//#include <cstdio>
+//#include <set>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+//#include <boost/filesystem.hpp>
+//#include <boost/python.hpp>
+//#include <cctype>
+#include <vector>
+//#include <queue>
+//#include "ran.h"
+//#include <stdio.h>      /* printf */
+//#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+//#include <limits>
+
+
+//namespace po = boost::program_options;
+using namespace std;
+
+int main()
+{
+    double aRatio = 1.2;
+    double bRatio = 0.5;
+    double tradeRatio;
+    double aPower;
+    double bPower;
+    // When powers are equal
+    aPower = 1;
+    bPower = 1;
+
+//    if (aPower > bPower) {
+//        aPower = aPower / bPower * 500;
+//        bPower = 1;
+//    } else if (bPower > aPower) {
+//        bPower = bPower / aPower * 500;
+//        aPower = 1;
+//    }
+
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    int numAPicked, numBPicked;
+    double exactNumAPicked;
+    if (tradeRatio <= 1.0) {
+        numBPicked = int(round(1.0 / tradeRatio));
+    } else {
+        numBPicked = 1;
+    }
+    exactNumAPicked = numBPicked * tradeRatio;
+    numAPicked = int(round(exactNumAPicked));
+    for (int i = 0; i < 10; i++) {
+        numBPicked++;
+        exactNumAPicked = numBPicked * tradeRatio;
+        numAPicked = int(round(exactNumAPicked));
+    }
+    cout << "tradeRatio = " << tradeRatio << "     A = " << numAPicked << "   B = " << numBPicked << endl;
+
+    // weighted gemotric mean
+    aPower = 0.4;
+    bPower = 1;
+
+    tradeRatio = pow( pow(aRatio,aPower)*pow(bRatio,bPower), 1.0 / (aPower + bPower) );
+    if (tradeRatio <= 1.0) {
+        numBPicked = int(round(1.0 / tradeRatio));
+    } else {
+        numBPicked = 1;
+    }
+    exactNumAPicked = numBPicked * tradeRatio;
+    numAPicked = int(round(exactNumAPicked));
+    for (int i = 0; i < 10; i++) {
+        numBPicked++;
+        exactNumAPicked = numBPicked * tradeRatio;
+        numAPicked = int(round(exactNumAPicked));
+    }
+    cout << "tradeRatio = " << tradeRatio << "     A = " << numAPicked << "   B = " << numBPicked << endl;
+}

@@ -1,0 +1,14 @@
+    /*
+     * If the results are not calculated by groups but the program running under heterogeneous,
+     * then when saved to database, all groups have the same results as all agents.
+     */
+
+    if (glob.saveDatabaseSet) {
+        allResults[0].push_back(results);
+    }
+
+    if (glob.saveDatabaseSet) {
+        for (int i = 0; i < glob.NUM_AGENT_GROUPS; i++) {
+            allResults[i+1].push_back(groupResults[i]);
+        }
+    }

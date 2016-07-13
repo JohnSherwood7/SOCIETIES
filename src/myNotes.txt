@@ -1,0 +1,5 @@
+Questions:
+1. User needs to specify hetero_ID?
+-d UUID1 UUID2 iterationNum hetero_ID(RTP,DTP...) saveDir
+2. Save directory
+ 

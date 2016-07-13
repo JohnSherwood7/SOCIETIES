@@ -1,0 +1,672 @@
+#include <vector>
+#include <fstream>
+#include <iostream>
+#include <algorithm>
+#include <cassert>
+#include <boost/foreach.hpp>
+#include <boost/lexical_cast.hpp>
+
+#include "globals.h"
+#include "utils.h"
+#include "agent.h"
+#include "device.h"
+#include "marketplace.h"
+#include "statstracker.h"
+#include "devmarketplace.h"
+#include "logging.h"
+
+using namespace std;
+
+void Utils::printStartConditions()
+{
+    cout << "Num agents: " << glob.NUM_AGENTS << endl;
+    cout << "Num days: " << glob.NUM_DAYS << endl;
+    cout << "Num resources: " << glob.NUM_RESOURCES << endl;
+}
+
+
+void Utils::agentsWork()
+{
+    LOG(2) << "Entering agents work phase";
+    BOOST_FOREACH(Agent *agent, glob.agent) {
+        if (agent->inSimulation) {
+            agent->workDay();
+        }
+    }
+}
+
+void Utils::agentsTrade()
+{
+    if (glob.TRADE_EXISTS) {
+        LOG(2) << "Entering agents trade phase";
+        cout << "(agentsTrade) tradeResources" << endl;
+        glob.resourceMarket->tradeResources();
+    } else {
+        LOG(2) << "Skipping disabled agents trade phase";
+    }
+}
+
+// Used below for shuffling the list.
+static int my_random_int_from_0(int upper)
+{
+    return glob.random_int(0, upper);
+}
+
+/**
+ * Agents are selected in random order to invent devices.
+ */
+void Utils::agentsInvent()
+{
+    if (! glob.DEVICES_EXIST) {
+        LOG(2) << "Skipping agents invent phase, DEVICES_EXIST being disabled";
+        return;
+    }
+    LOG(2) << "Entering agents invent phase";
+    vector<Agent *> inventors;
+    for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+        inventors.push_back(glob.agent[aId]);
+        if (glob.agent[aId]->inSimulation) {
+            glob.agent[aId]->updateDeviceComponentExperience();
+        }
+    }
+    // shuffle the inventors list, and then call toolInvention() on each.
+    random_shuffle(inventors.begin(), inventors.end(), my_random_int_from_0);
+    BOOST_FOREACH(Agent *agent, inventors) {
+        if (agent->inSimulation) {
+            agent->toolInvention();
+        }
+    }
+}
+
+
+void Utils::endDay()
+{
+    LOG(2) << "Entering end day checks phase";
+    for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+        if (glob.agent[aId]->inSimulation) {
+            glob.agent[aId]->endDayChecks();
+        }
+    }
+}
+
+
+void Utils::endDayDecay()
+{
+    LOG(2) << "Entering day decay phase";
+    BOOST_FOREACH(Agent *agent, glob.agent) {
+        if (agent->inSimulation) {
+            agent->decay();
+        }
+    }
+
+    BOOST_FOREACH(Agent *agent, glob.agent) {
+        assert(agent->calcMinHeld() >= 0);
+    }
+}
+
+
+/**
+ * From most complex to least complex, agents trade devices, then decide
+ * to make devices for themselves, then trade, and so on
+ */
+void Utils::agentsTradeDevices()
+{
+    /* Shouldn't trade when TRADE_EXISTS is turned off. */
+    if (glob.TRADE_EXISTS) {
+        LOG(2) << "Entering trade devices phase";
+        BOOST_FOREACH(Agent *agent, glob.agent) {
+            if (agent->overtime < glob.DAY_LENGTH) {
+                agent->utilGainThroughDevSoldToday = 0.0;
+            }
+        }
+        if (! glob.DEVICES_EXIST) {
+            return;
+        }
+        glob.resourceMarket->tradeResources();
+        device_name_t devarr[] = { INDUSTRY, FACTORY, DEVFACTORY, MACHINE, DEVMACHINE, TOOL };
+        for (int i = 0; i < 6; i++) {  // 6 is length of array above.
+            device_name_t types = devarr[i];
+
+            glob.deviceMarket->tradeDevices(types);
+
+            BOOST_FOREACH(Agent *agent, glob.agent) {
+                if (agent->inSimulation) {
+                    agent->personalDevices(types);
+                }
+            }
+            glob.resourceMarket->tradeResources();
+        }
+    } else {
+        LOG(2) << "Skipping disabled agents trade phase";
+    }
+}
+
+
+void Utils::agentsProduceDevices()
+{
+    LOG(2) << "Entering produce devices phase";
+    if (! glob.DEVICES_EXIST) {
+        return;
+    }
+    BOOST_FOREACH(Agent *agent, glob.agent) {
+        if (agent->inSimulation) {
+            agent->deviceProduction();
+        }
+    }
+}    
+
+
+bool Utils::deviceExists(device_name_t devType)
+{
+    bool exist = false;
+    for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+        if (glob.discoveredDevices[devType][resId] != NULL &&
+            glob.discoveredDevices[devType][resId]->agentsKnown() != 0) {
+            exist = true;
+            break;
+        }
+    }
+    return exist;
+}
+
+
+void Utils::printSumUtilAndRes()
+{
+    cout << "SumUtil:" << glob.otherStats->getSumUtilBack() << endl;
+    cout << "SumRes:" << glob.otherStats->getSumResBack() << endl;
+}
+
+/*
+ * At the end of each day, compile the stats of the day
+ * \param dayNumber The current day in the simulation
+ */
+void Utils::dayAnalysis(int dayNumber)
+{
+    LOG(2) << "Entering day analysis phase";
+    BOOST_FOREACH(Agent *agent, glob.agent) {
+        agent->calcUtilityToday();
+    }
+
+    // Update each statistics module in turn
+    glob.tradeStats->dailyUpdate();
+    glob.productionStats->dailyUpdate();
+    glob.otherStats->dailyUpdate();
+    glob.otherStats->getSumResByAgent();
+
+    BOOST_FOREACH(Agent *agent, glob.agent) {
+        agent->resetTodayStats();
+    }
+}
+
+
+void Utils::removeOrSave(int dayNumber)
+{
+    LOG(2) << "Entering remove or save phase";
+    if (glob.SAVE_DAY_STATUS) {
+        if (dayNumber == glob.DAY_FOR_SAVE) {
+            saveDayStatus(dayNumber);
+        }
+    }
+    if (glob.REMOVE_RES) {
+        if (dayNumber == glob.REMOVE_RES_DAY) {
+            glob.removeRes(glob.RES_TO_REMOVE, dayNumber);
+        }
+    }
+    if (glob.REMOVE_AGENT) {
+        if (dayNumber == glob.REMOVE_AGENT_DAY) {
+            glob.removeAgent(glob.AGENT_TO_REMOVE, dayNumber);
+        }
+    }
+}
+
+
+void Utils::endSim()
+{
+    printStartConditions();
+    printSumUtilAndRes();
+    if (glob.SAVE_DAY_STATUS) {
+        cout << "Your status on day " << glob.DAY_FOR_SAVE << " is saved in " <<
+            glob.DAY_STATUS_SAVE_FOLDER << endl;
+    }
+    if (glob.END_SAVE) {
+        saveResults();
+        glob.setCurrentBatch();
+        cout << "Your results have been saved in " << glob.SAVE_FOLDER << endl;
+        cout << "The simulation was named " << glob.SIM_NAME << endl;
+    } else {
+        // TODO: we are not doing this in C++...  remove this else part?
+        /*
+        while (options.graph):
+            ag.showGraph()
+            command = raw_input('Enter c to continue (anything else to quit):')
+            if command.lower() == 'c':
+                ag.showGraph()
+            else:
+                break
+                    }
+        */
+    }
+}
+
+void Utils::saveTotalUtility()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/totalUtility_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/totalUtility_.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    file << "sumUtil,";
+    vector<double> sumUtil = glob.otherStats->getSumUtil();
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << (sumUtil[i]) << ",";
+    }
+    file << "\n";
+    file.close();
+}
+
+void Utils::saveMeanUtility()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/meanUtlity_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/meanUtlity.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    file << "meanUtil,";
+    vector<double> sumUtil = glob.otherStats->getSumUtil();
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << (sumUtil[i] / activeAgents[i]) << ",";
+    }
+    file << "\n";
+    file.close();
+}
+
+void Utils::saveUnitsGatheredPerActiveAgent()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/unitsGatheredPerActiveAgent_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/unitsGatheredPerActiveAgent.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    vector<int> resGath = glob.productionStats->getResGathered();
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+
+    file << "unitsGatheredPerActiveAgent_" << glob.SIM_NAME << ",";
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << ( (double) resGath[i] / (double) activeAgents[i] ) << ",";
+    }
+    file << "\n";
+    file.close();
+}
+
+void Utils::saveUnitsHeldPerActiveAgent()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/unitsHeldPerActiveAgent_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/unitsHeldPerActiveAgent.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    file << "unitsHeldPerActiveAgent_" << glob.SIM_NAME << ",";
+    vector<int> sumRes = glob.otherStats->getSumRes();
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << ( (double) sumRes[i] / (double) activeAgents[i] ) << ",";
+    }
+    file << "\n";
+    file.close();
+}
+
+void Utils::saveUnitsTraded()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/unitsTraded_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/unitsTraded.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+    file << "unitsTradedForDevicePerActiveAgent_" << glob.SIM_NAME << ",";
+    vector<int> resTradeForDeviceVolume = glob.tradeStats->getResTradeForDeviceVolumn();
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << ( (double) resTradeForDeviceVolume[i] / (double) activeAgents[i] ) << ",";
+    }
+    file << "\n";
+    file << "unitsTradedForResPerActiveAgent_" << glob.SIM_NAME << ",";
+    vector<int> resTradeVolume = glob.tradeStats->getResTradeVolume();
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << ( (double) resTradeVolume[i] / (double) activeAgents[i] ) << ",";
+    }
+    file << "\n";
+    file.close();
+}
+
+void Utils::saveDeviceMade()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/deviceMade_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/deviceMade.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+    string devicesStr[] = { "TOOL", "MACHINE", "FACTORY", "INDUSTRY", "DEVMACHINE", "DEVFACTORY" };
+    vector< vector<int> > devicesMade = glob.productionStats->getDevicesMade();
+    for (int i = 0; i < NUM_DEVICE_TYPES; i++) {
+        file << devicesStr[i] << "MadePerActiveAgent_" << glob.SIM_NAME << ",";
+        for (int j = 0; j < glob.NUM_DAYS; j++) {
+            file << ( (double) devicesMade[i][j] / (double) activeAgents[j] ) << ",";
+        }
+        file << "\n";
+    }
+    file.close();
+}
+
+void Utils::saveGatheringWithDevices()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/gatheringWithDevices_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/gatheringWithDevices.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+    string devicesStr[] = { "TOOL", "MACHINE", "FACTORY", "INDUSTRY", "DEVMACHINE", "DEVFACTORY" };
+    vector< vector<int> > timeSpentGatheringWithDevice = glob.productionStats->getTimeSpentGatheringWithDevice();
+    for (int i = 0; i < NUM_DEVICE_TYPES - 2; i++) {
+        file << devicesStr[i] << "timeGatheringWithDevicePerActiveAgent_" << glob.SIM_NAME << ",";
+        for (int j = 0; j < glob.NUM_DAYS; j++) {
+            file << ( (double) timeSpentGatheringWithDevice[i][j] / (double) activeAgents[j] ) << ",";
+        }
+        file << "\n";
+    }
+    file.close();
+}
+
+void Utils::saveTotalTimeUsage()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/totalTimeUsage_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/totalTimeUsage.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    vector<int> activeAgents = glob.otherStats->getActiveAgents();
+    string devicesStr[] = { "TOOL", "MACHINE", "FACTORY", "INDUSTRY", "DEVMACHINE", "DEVFACTORY" };
+    vector< vector<int> > timeSpentMakingDevices = glob.productionStats->getTimeSpentMakingDevices();
+    for (int i = 0; i < NUM_DEVICE_TYPES; i++) {
+        file << devicesStr[i] << "timeMakingDevicesPerActiveAgent_" << glob.SIM_NAME << ",";
+        for (int j = 0; j < glob.NUM_DAYS; j++) {
+            file << ( (double) timeSpentMakingDevices[i][j] / (double) activeAgents[j] ) << ",";
+        }
+        file << "\n";
+    }
+    file << "timeGatheringWithoutDevicePerActiveAgent_" << glob.SIM_NAME << ",";
+    vector<int> timeSpentGatheringWithoutDevice = glob.productionStats->getTimeSpentGatheringWithoutDevice();
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        file << ( (double) timeSpentGatheringWithoutDevice[i] / (double) activeAgents[i] ) << ",";
+    }
+    file << "\n";
+    file.close();
+}
+
+void Utils::saveDevicePercents()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/devicePercents_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/devicePercents.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    string devicesStr[] = { "TOOL", "MACHINE", "FACTORY", "INDUSTRY", "DEVMACHINE", "DEVFACTORY" };
+    vector< vector<double> > percentResGatheredByDevice = glob.productionStats->getPercentResGatheredByDevice();
+    for (int i = 0; i < NUM_DEVICE_TYPES - 2; i++) {
+        file << devicesStr[i] << "percentResGatheredWith_" << glob.SIM_NAME << ",";
+        for (int j = 0; j < glob.NUM_DAYS; j++) {
+            file << percentResGatheredByDevice[i][j] << ",";
+        }
+        file << "\n";
+    }
+    file.close();
+}
+
+void Utils::saveDevDevice()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/devDeviceUse_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/devDeviceUse.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    int totalMade = 0;
+    vector< vector<int> > devicesMade = glob.productionStats->getDevicesMade();
+    string devicesStr[] = { "TOOL", "MACHINE", "FACTORY", "INDUSTRY", "DEVMACHINE", "DEVFACTORY" };
+    vector< vector<int> > devicesMadeWithDevDevice = glob.productionStats->getDevicesMadeWithDevDevice();
+    for (int i = 4; i < NUM_DEVICE_TYPES; i++) {
+        file << devicesStr[i] << "Use_" << glob.SIM_NAME  << ",";
+        for (int j = 0; j < glob.NUM_DAYS; j++) {
+            if (devicesStr[i] == "DEVMACHINE") {
+                totalMade = devicesMade[0][j];
+            } else if (devicesStr[i] == "DEVFACTORY") {
+                totalMade = devicesMade[1][j];
+            }
+            if (totalMade > 0) {
+                file << ( (double) devicesMadeWithDevDevice[i][j] / (double) totalMade ) << ",";
+            } else {
+                file << 0 << ",";
+            }
+        }
+        file << "\n";
+    }
+    file.close();
+}
+
+/* deviceComplexity */
+void Utils::saveDeviceComplexity()
+{
+    ofstream file;
+    string filePath = "";
+    if (glob.IN_BATCH) {
+        filePath = glob.SAVE_FOLDER + "/complexity_" + glob.STATS_FILE_NAME + ".csv";
+    } else {
+        filePath = glob.SAVE_FOLDER + "/complexity.csv";
+    }
+
+    if (glob.getCurrentBatch() == 0) {
+        file.open(filePath.c_str());
+        /* header by day */
+        file << ",";
+        for (int i = 0; i < glob.NUM_DAYS; i++) {
+            file << (i + 1) << ",";
+        }
+        file << "\n";
+    } else {
+        file.open(filePath.c_str(), ios::app);
+    }
+
+    file << "complexity_" << glob.SIM_NAME << ",";
+    vector< vector<double> > percentResGatheredByDevice = glob.productionStats->getPercentResGatheredByDevice();
+   double complexityToday;
+    for (int i = 0; i < glob.NUM_DAYS; i++) {
+        complexityToday = 0.0;
+        for (int j = 0; j < 4; j++) {
+            complexityToday += percentResGatheredByDevice[j][i] * glob.RES_IN_DEV[j];
+        }
+        file << complexityToday << ",";
+    }
+    file << "\n";
+    file.close();
+}
+/*
+ * Save results into csv files -- part of graph.py in python.
+ * Different from saveResults() in utils.py
+ */
+void Utils::saveResults()
+{
+    saveTotalUtility();
+    saveMeanUtility();
+    saveUnitsGatheredPerActiveAgent();
+    saveUnitsHeldPerActiveAgent();
+    saveUnitsTraded();
+    saveDeviceMade();
+    saveGatheringWithDevices();
+    saveTotalTimeUsage();
+    saveDevicePercents();
+    saveDevDevice();
+    saveDeviceComplexity();
+}
+
+
+void Utils::saveDayStatus(int day)
+{
+    cout << "saveDayStatus: NOT IMPLEMENTED YET!" << endl;
+}
+
+
+void Utils::loadDayStatus()
+{
+    cout << "loadDayStatus: NOT IMPLEMENTED YET!" << endl;
+}

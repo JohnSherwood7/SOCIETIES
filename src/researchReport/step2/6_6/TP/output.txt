@@ -1,0 +1,8 @@
+Num agents: 12
+Num days: 3000
+Num resources: 24
+SumUtil:3382989
+SumRes:582032
+Your results have been saved in researchReport/step2/6_6/TP
+The simulation was named TP
+The total number of seconds is 2549

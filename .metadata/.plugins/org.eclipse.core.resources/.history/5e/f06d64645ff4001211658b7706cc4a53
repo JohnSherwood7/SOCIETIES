@@ -1,0 +1,53 @@
+/**
+ * The utils module includes commonly-used functions for use during simulations.
+ */
+
+#ifndef _SOC_UTILS_H_
+#define _SOC_UTILS_H_
+
+#include "globals.h"
+
+class Utils {
+public:
+	void printStartConditions();
+	void agentsWork();
+	void agentsTrade();
+	void agentsInvent();
+	void endDay();
+	void endDayDecay();
+	void agentsTradeDevices();
+	void agentsProduceDevices();
+	bool deviceExists(device_name_t deviceType);
+	void printSumUtilAndRes();
+	void dayAnalysis(int dayNumber);
+	void removeOrSave(int dayNumber);
+	void endSim();
+	vector<vector<double> > calcQuartiles(vector<vector<double> > data);
+	void headerByDay(ofstream &file, string filePath);
+	void saveResults();
+	void saveGini();
+	void saveHHI();
+	void saveHHIQuartiles();
+	void saveTotalUtility();
+	void saveMeanUtilityPerGroup();
+	void saveMeanUtility();
+	void saveUnitsGatheredPerActiveAgent();
+	void saveUnitsGatheredPerGroup();
+	void saveUnitsHeldPerActiveAgent();
+	void saveUnitsHeldPerGroup();
+	void saveUnitsTradedPerActiveAgent();
+	void saveUnitsTradedPerGroup();
+	void saveDeviceMade();
+	void saveGatheringWithDevices();
+	void saveTotalTimeUsage();
+	void saveDevicePercents();
+	void saveDevDevice();
+	void saveDeviceComplexity();
+	void saveDiscoveredDevices();
+	void saveDayStatus(int day);		// NOT IMPLEMENtED YET.
+	void loadDayStatus();		// NOT IMPLEMENtED YET.
+};
+
+extern Utils util;
+extern OtherStats oStats;
+#endif

@@ -1,0 +1,68 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+#include <iostream>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+#include <boost/filesystem.hpp>
+//#include <cctype>
+#include "ran.h"
+
+//namespace po = boost::program_options;
+using namespace std;
+
+Ran01<double>   randGen;
+RanBinomial<double> randBinomial;
+
+// returns value in range [lower, upper) (as far as I can tell).
+double random_range(double lower, double upper) {
+    return (randGen() * (upper - lower)) + lower;
+}
+// returns value in range [0.0, 1.0) (as far as I can tell).
+double random_01() {
+    return random_range(0.0, 1.0);
+}
+// returns integer value in range [lower, upper).
+int random_int(int lower, int upper) {
+    return ((int) random_range(lower, upper));
+}
+// returns integer value in range [lower, upper].
+int random_int_inclusive(int lower, int upper) {
+    return random_int(lower, upper + 1);
+}
+
+// returns a value randomly chosen from the vector.
+int random_choice(vector<int> &vec)
+{
+    return vec[random_int(0, vec.size())];
+}
+
+// returns a value randomly from a binomial distribution.
+double random_binomial(int n, double p)
+{
+    return randBinomial(n, p);
+}
+
+int main(int ac, char* av[])
+{
+    double testRandomRange = random_range(2.0, 3.0);
+
+
+}
+
+
+

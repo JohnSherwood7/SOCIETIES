@@ -1,0 +1,55 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+#include <iostream>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+//#include <cctype>
+#include "ran.h"
+
+//namespace po = boost::program_options;
+using namespace std;
+
+Ran01<double> randGen;
+
+double random_range(double lower, double upper) {
+    return (randGen() * (upper - lower)) + lower;
+}
+
+double random_01() {
+    return random_range(0.0, 1.0);
+}
+// returns integer value in range [lower, upper).
+int random_int(int lower, int upper) {
+    return ((int) random_range(lower, upper));
+}
+
+int main(int ac, char* av[])
+{
+//    RanBinomial<double> ran1 = RanBinomial<double>();
+//    double x;
+//    for (int i = 0; i < 10; i++) {
+//        x = ran1(10,0.5);
+//        cout << x << " ";
+//    }
+    randGen = Ran01<double>(0);
+    double x = random_01();
+    cout << x;
+}
+
+
+

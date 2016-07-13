@@ -1,0 +1,3 @@
+[paths]
+default = http://abs.calvin.edu/hg/societies
+default-push = ssh://jj29@abs.calvin.edu//home/hg/societies

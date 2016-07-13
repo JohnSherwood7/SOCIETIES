@@ -1,0 +1,9 @@
+configAgentFile: researchReport/step2/24/7000/HM/devices_test_AgentValues.aconf
+Num agents: 24
+Num days: 7000
+Num resources: 48
+SumUtil:6919185
+SumRes:429898
+Your results have been saved in researchReport/step2/24/7000/HM/
+The simulation was named HM
+The total number of seconds is 5333

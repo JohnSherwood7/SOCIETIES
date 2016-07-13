@@ -1,0 +1,100 @@
+#include <iostream>
+#include <vector>
+#include "globals.h"
+using namespace std;
+
+
+class Agent;
+
+class Device
+{
+public:
+    device_name_t componentType;
+    int use;
+    double lifetime;
+    double deviceFactor;
+    vector<int> components;
+    vector<int> necessaryResources;
+    device_name_t type;
+    device_name_t canMake;
+    device_name_t devDevice;
+    device_name_t componentOf;
+
+    Device(device_name_t componentType, device_name_t type,
+           device_name_t canMake, device_name_t devDevice, device_name_t componentOf,
+           vector<int> &components, int use, double deviceFactor, double lifetime);
+    int agentsKnown();
+    virtual double costs(Agent &agent);
+    virtual double expectedConstructionTime(Agent &agent);
+    pair<double, vector<int> > worstCaseConstruction(Agent &agent);
+    virtual vector<int> necessaryRes();
+    virtual double gainOverLifetime(Agent &agent) = 0;
+
+    string componentsAsString();
+};
+
+
+class DevDevice : public Device
+{
+public:
+    DevDevice(device_name_t componentType, device_name_t type,
+              device_name_t canMake, device_name_t devDevice, device_name_t componentOf,
+              vector<int> &components, int use, double deviceFactor, double lifetime);
+    bool wantsToConsiderDevDevice(Agent &agent);
+    double gainOverLifetime(Agent &agent);
+};
+
+
+class DevMachine : public DevDevice
+{
+public:
+    DevMachine(vector<int> &component, int use);
+};
+
+
+class DevFactory : public DevDevice
+{
+public:
+    DevFactory(vector<int> &component, int use);
+};
+
+
+class Tool : public Device
+{
+public:
+    Tool(vector<int> &component, int use);
+    double costs(Agent &agent);
+    double expectedConstructionTime(Agent &agent);
+    double gainOverLifetime(Agent &agent);
+    vector<int> necessaryRes();	
+};
+
+
+class Machine : public Device
+{
+public:
+    Machine(vector<int> &component, int use);
+    double gainOverLifetime(Agent &agent);
+};
+
+
+class Factory : public Device
+{
+public:
+    Factory(vector<int> &component, int use);
+    double gainOverLifetime(Agent &agent);
+};
+
+
+class Industry : public Device
+{
+public:
+    Industry(vector<int> &component, int use);
+    double gainOverLifetime(Agent &agent);
+};
+
+// TODO: I moved componentOf up to Device.
+// Tony: please make sure it and canMake are set to correct values in all cases.
+// As long as Industry and DevFactory are componentOf None
+// or componentOf -1 or something similar, then all devices
+// have componentOf, and it should be moved to the super class

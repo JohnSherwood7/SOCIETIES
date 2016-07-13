@@ -1,0 +1,24 @@
+Num agents: 6
+Num days: 3000
+Num resources: 24
+SumUtil:1191511
+SumRes:194019
+Your results have been saved in researchReport/step1b/6_24
+The simulation was named 6_24
+The total number of seconds is 523
+Num agents: 6
+Num days: 5000
+Num resources: 24
+SumUtil:1251936
+SumRes:181024
+Your results have been saved in researchReport/step1b/6_24
+The simulation was named 6_24
+The total number of seconds is 1334
+Num agents: 6
+Num days: 10000
+Num resources: 24
+SumUtil:1183982
+SumRes:171574
+Your results have been saved in researchReport/step1b/6_24
+The simulation was named 6_24
+The total number of seconds is 2689

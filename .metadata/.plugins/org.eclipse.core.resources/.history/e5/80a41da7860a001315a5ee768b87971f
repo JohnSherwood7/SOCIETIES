@@ -1,0 +1,82 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Jun 11, 2013
+ *      Author: jj29
+ */
+
+/*
+ * test.cpp
+ *
+ *  Created on: Jun 18, 2013
+ *      Author: jj29
+ */
+
+//#include <map>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <algorithm>
+//#include <cmath>
+//#include <numeric>
+//#include <cstdio>
+//#include <set>
+//#include <cstdlib>
+//#include <string>
+//#include <cstring>
+//#include <boost/program_options.hpp>
+//#include <boost/lexical_cast.hpp>
+//#include <boost/filesystem.hpp>
+//#include <boost/python.hpp>
+//#include <cctype>
+#include <vector>
+//#include <queue>
+//#include "ran.h"
+//#include <stdio.h>      /* printf */
+//#include <stdlib.h>     /* system, NULL, EXIT_FAILURE */
+//#include <limits>
+
+
+//namespace po = boost::program_options;
+using namespace std;
+
+int main()
+{
+    vector<double> groupNumbers;
+    ifstream file("../conf/AgentTypes.aconf");
+    string line;
+    int count, count2;
+    while (file >> line) {
+        string line;
+        getline(file, line);
+        stringstream sline(line);
+        cout << line[0] << endl;
+        if (line[0] == '#') {
+            count++;
+            for (int resId = 0; resId < 24; resId++) {
+                cout << "-----test 2-----" << endl;
+                string line2;
+                getline(file, line2);
+                stringstream sline2(line2);
+                /* read in a line of 13 values for each resource, comma-separated. */
+                vector<double> t(14, 0.0);
+                for (int i = 0; i < 14; i++) {
+                    sline2 >> t[i];
+                    if (sline2.peek() == ',') {
+                        char comma;
+                        sline2 >> comma;
+                    }
+                }
+                if (resId == 0) {
+                    groupNumbers.push_back(t[13]);
+                    cout << t[13] << endl;
+                }
+            }
+        } else {
+            count2++;
+        }
+    }
+    cout << "count = " << endl;
+    cout << "count2 = " << endl;
+    cout << *max_element(groupNumbers.begin(), groupNumbers.end()) << endl;
+}

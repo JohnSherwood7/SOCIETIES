@@ -1,0 +1,16 @@
+groupID,iterationID,description,res_tradePower,dev_tradePower,minResEff,maxResEff,inventSpeed,minDevEff,maxDevEff
+-1,,AVG,,,,,,,,
+0,,Group 0,1,1,3,9,1,9,27
+1,,Group 1,1,1,3,9,1,9,27
+-1,,AVG,,,,,,,,
+0,,Group 0,1,1,3,9,1,9,27
+1,,Group 1,1,1,3,9,1,9,27
+-1,,AVG,,,,,,,,
+0,,Group 0,1,1,3,9,1,9,27
+1,,Group 1,1,1,3,9,1,9,27
+-1,,AVG,,,,,,,,
+0,,Group 0,1,1,3,9,1,9,27
+1,,Group 1,1,1,3,9,1,9,27
+-1,,AVG,,,,,,,,
+0,,Group 0,1,1,3,9,1,9,27
+1,,Group 1,1,1,3,9,1,9,27

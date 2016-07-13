@@ -1,0 +1,8 @@
+Num agents: 12
+Num days: 3000
+Num resources: 24
+SumUtil:3058157
+SumRes:468545
+Your results have been saved in researchReport/step2/6_6/IS
+The simulation was named IS
+The total number of seconds is 1419

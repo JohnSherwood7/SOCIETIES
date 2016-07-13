@@ -1,0 +1,756 @@
+/*
+ * statstracker.cpp
+ *
+ *  Created on: Jan 8, 2013
+ *      Author: guest1
+ */
+
+#include "statstracker.h"
+#include "globals.h"
+#include "agent.h"
+#include "device.h"
+
+using namespace std;
+
+
+DayExchangeStats::DayExchangeStats()
+{
+	for (int i = 0; i < glob.NUM_RESOURCES; i++){
+		soldExchanges.push_back( 0 );
+		boughtExchanges.push_back( 0 );
+	}
+
+	for (int i = 0; i < NUM_DEVICE_TYPES; i++){
+		deviceExchange deviceEx;
+		deviceEx.sold = 0;
+
+		deviceExchanges.push_back(deviceEx);
+	}
+}
+
+/******************************************************************
+ *
+ *
+ * 					TradeStats
+ *
+ * TODO: Move this class to another file so it can be used as a module
+ * 			and leave the program in a more organized state
+ *
+ ******************************************************************/
+
+
+
+TradeStats::TradeStats()
+{
+
+	if (glob.SAVE_TRADES) {
+
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+			dayResExchanges.push_back(DayExchangeStats());
+		}
+	}
+}
+
+void TradeStats::dailyUpdate()
+{
+	/*
+	 * For each agent add the units they sold.  Then append the total amount sold by the society to resTradeVolume
+	 */
+	int tradeVolume = 0;
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		tradeVolume += glob.agent[aId]->unitsSoldToday;
+	}
+	resTradeVolume.push_back(tradeVolume);
+
+	/*
+	 * For each agent add up the number of units they sold for a device that day.
+	 * Then append that to the resTradeForDeviceVolume
+	 */
+	int tradeForDeviceVolume = 0;
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		tradeForDeviceVolume += glob.agent[aId]->unitsSoldForDevicesToday;
+	}
+	resTradeForDeviceVolume.push_back(tradeForDeviceVolume);
+
+	/*
+	 * Not really sure how this works
+	 */
+	if (glob.SAVE_TRADES) {
+		vector < vector <int> > newResExchanges;	// same as the local resExchanges in python
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++){
+			newResExchanges.push_back(dayResExchanges[resId].getSoldExchanges());
+			dayResExchanges[resId] = DayExchangeStats();
+		}
+		resExchanges.push_back(newResExchanges);
+	}
+}
+
+/**
+ * Not sure about the parameter type
+ */
+void TradeStats::newExchange(ResourcePair pair)
+{
+	int resA = pair.getAPick();
+	int resB = pair.getBPick();
+	int numA = pair.getNumAPicked();
+	int numB = pair.getNumBPicked();
+	/**
+	 * dayResExchanges[resA].getSoldExchanges()[resB] is the number of units
+	 * of resA given up in exchange for resB.
+	 * dayResExchanges[resB].getBoughtExchanges()[resA] is the number of
+	 * units of resB given up in exchange for resA.
+	 */
+	dayResExchanges[resA].getSoldExchanges()[resB] += numA;		// TODO: index needs to be checked
+	dayResExchanges[resA].getBoughtExchanges()[resB] += numB;
+	dayResExchanges[resB].getSoldExchanges()[resA] += numB;
+	dayResExchanges[resB].getBoughtExchanges()[resA] += numA;
+}
+
+
+
+/******************************************************************
+ *
+ *
+ * 					ProductionStats
+ *
+ * TODO: Move this class to another file so it can be used as a module
+ * 			and leave the program in a more organized state
+ *
+ ******************************************************************/
+
+/*
+ * Default Constructor:
+ * 		This default constructor creates all the necessary data structures (primarily
+ * 		vectors and nested vectors with type int at their lowest level). The structure
+ * 		of the loops in this constructor allows us to reduce the total number of
+ * 		loops the program must complete in order to gather statistics.
+ */
+ProductionStats::ProductionStats()
+{
+
+	// for each agent ID
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++)
+	{
+		resGatheredByAgent.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		timeSpentGatheringWithoutDeviceByAgent.push_back(glob.EMPTY_VECTOR_OF_INTS);
+	}
+
+	// for each resource ID
+	for (int resId = 0; resId < glob.NUM_RESOURCES; resId++)
+	{
+		resGatheredByResByAgent.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+		numAgentsGatheringByRes.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		resGatheredByRes.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		for (int aId = 0; aId < glob.NUM_AGENTS; aId++)
+		{
+			resGatheredByResByAgent[resId].push_back(glob.EMPTY_VECTOR_OF_INTS);
+		}
+	}
+
+	// for each enum 0-6
+	//(TOOL, MACHINE, FACTORY, INDUSTRY, DEVMACHINE, DEVFACTORY, NO_DEVICE)
+	for (int type = TOOL; type < glob.getNumDeviceTypes(); type++)
+	{
+		devicesMade.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		devicesMadeByRes.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+		/* For devicesMadeWithDevDevices & devicesMadeWithDevDevicesByRes:
+		 * Put in place holder vectors.  At this point it is making 6 but we really only need two.
+		 * In order to access the vectors with expected indexes (to simplify our lives), we chose
+		 * to waste the four empty vectors at the beginning instead of needing to do offsets
+		 * elsewhere to access the data correctly.
+		 */
+		devicesMadeWithDevDevices.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		devicesMadeWithDevDevicesByRes.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+
+		timeSpentMakingDevices.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		timeSpentMakingDevicesByAgent.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+		timeSpentGatheringWithDevice.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		timeSpentGatheringWithDeviceByAgent.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+
+		// for each agent ID
+		for (int aId = 0; aId < glob.NUM_AGENTS; aId++)
+		{
+			timeSpentGatheringWithDeviceByAgent[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+			timeSpentMakingDevicesByAgent[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+		}
+
+		// for each resource ID
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++)
+		{
+			devicesMadeByRes[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+		}
+
+		// only types 0-3 (TOOL, MACHINE, FACTORY, INDUSTRY)
+		if (type <= INDUSTRY)
+		{
+			resGatheredByDevice.push_back(glob.EMPTY_VECTOR_OF_INTS);
+			percentResGatheredByDevice.push_back(glob.EMPTY_VECTOR_OF_INTS);
+			percentResGatheredByDeviceByRes.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+			resGatheredByDeviceByRes.push_back(glob.EMPTY_VECTOR_OF_VECTORS_OF_INTS);
+			for (int resId = 0; resId < glob.NUM_RESOURCES; resId++)
+			{
+				percentResGatheredByDeviceByRes[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+				resGatheredByDeviceByRes[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+			}
+		}
+		// only types 4-5 (DEVMACHINE, DEVFACTORY)
+		else if ((type == DEVMACHINE) || (type == DEVFACTORY))
+		{
+			for (int resId = 0; resId < glob.NUM_RESOURCES; resId++)
+			{
+				devicesMadeWithDevDevicesByRes[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+			}
+		}
+	}
+}
+
+void ProductionStats::dailyUpdate()
+{
+	calcResGatheredAndResGatheredByAgent();
+	calcResGatheredByResByAgentAndNumAgentsGetheringByRes();
+	calcResGatheredByDevice();
+	calcResGatheredByDeviceByRes();
+	calcDevicesMade();
+	calcDevicesMadeByRes();
+	calcDevicesMadeWithDevDevicesByRes();
+	calcTimeSpentGatheringWithoutDevice();
+	calcTimeSpentGatheringWithDeviceAndTimeSpentMakingDevicesByAgent();
+	calcPercentResGatheredByDevice();
+	calcPercentResGatheredByDeviceByRes();
+}
+void ProductionStats::calcResGatheredAndResGatheredByAgent()
+{
+	/*
+	 * Go through each agent and add up the amount of each resource that was gathered that day.
+	 * This information will be added to lists by total of all agents and individually
+	 */
+	int sumGathered = 0;
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		int tempSum = 0;
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+			tempSum += glob.agent[aId]->getUnitsGatheredToday(resId);
+		}
+		int totalResThisAgentGathered = tempSum;
+		resGatheredByAgent[aId].push_back(totalResThisAgentGathered);
+		sumGathered += totalResThisAgentGathered;
+	}
+	resGathered.push_back(sumGathered);
+}
+
+void ProductionStats::calcResGatheredByResByAgentAndNumAgentsGetheringByRes()
+{
+	/*
+	 * For every resource begin to go through and if see if an agent gathered any today.
+	 * Add each amount gathered to sumResGathered
+	 * Append each agents individual amount to the resGatheredByResByAgent
+	 * If a resource was gathered by that agent add 1 to agentsMakingRes.
+	 * After all agents have been checked for a given resource, append agentsMakingRes to numAgentsGatheringbyRes
+	 * For each resource take the total gathered and append that to resGatheredByRes
+	 */
+	for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+		int numAgentsGatheringRes = 0;
+		int totalAmountOfThisResGathered = 0;
+
+		for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+			int AgentTotalThisResGathered =
+					glob.agent[aId]->getUnitsGatheredToday(resId);
+			resGatheredByResByAgent[resId][aId].push_back(AgentTotalThisResGathered);
+			totalAmountOfThisResGathered += AgentTotalThisResGathered;
+			if (AgentTotalThisResGathered > 0) {
+				numAgentsGatheringRes += 1;
+			}
+			/**
+			 * DEBUG_PRODUCTIONSTATS: not exist in python version
+			 */
+			if (DEBUG_PRODUCTIONSTATS) {
+				cout << "Resource Id: " << resId << " Agent Id: " << endl;
+				cout << "ResourcesGatheredByAgent: "
+						<< AgentTotalThisResGathered << endl;
+			}
+		}
+		if (DEBUG_PRODUCTIONSTATS)
+			cout << "Number of Agents Gathering Res " << resId << ": "
+					<< numAgentsGatheringRes << endl;
+		numAgentsGatheringByRes[resId].push_back(numAgentsGatheringRes);
+
+		if (DEBUG_PRODUCTIONSTATS)
+			cout << "Total Amount of Res " << resId << " Gathered: "
+					<< numAgentsGatheringRes << endl;
+		resGatheredByRes[resId].push_back(totalAmountOfThisResGathered);
+	}
+}
+
+void ProductionStats::calcResGatheredByDevice()
+{
+	/*
+	 * We want to know the total amount of resources gathered for each device.
+	 * For each device set sum=0
+	 * Go through each agent look if they gathered with that device today.
+	 * After going through all agents for a given device, add total to resGatheredByDevice
+	 */
+
+	for (int tempType = TOOL; tempType <= INDUSTRY; tempType++) {
+		int sumGathered = 0;
+		for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+			for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+				sumGathered += glob.agent[aId]->getUnitsGatheredWithDevice(
+						tempType, resId);
+				if (DEBUG_PRODUCTIONSTATS) {
+					cout << "deviceType: " << tempType << " agentId: " << aId
+							<< " resourceID: " << resId << endl;
+					cout << " Sum Resources Gathered With Devices: "
+							<< sumGathered << endl;
+				}
+			}
+		}
+		resGatheredByDevice[tempType].push_back(sumGathered);
+	}
+}
+
+void ProductionStats::calcResGatheredByDeviceByRes()
+{
+	/*
+	 * We want to know which devices are gathering how much of each resource.
+	 *
+	 *	Rearranged for resId line and the for type lines
+	 *		- We did this because when we need to push_back vectors the correct number of vectors.
+	 *		- Type gets called first before resId.  The flip flop makes sense.
+	 *<<<<<<<<<<<<<<<<<<<<<< Original python code:
+	 *	for resId in range (c.NUM_RESOURCES):
+	 *	            for types in self.resGatheredByDeviceByRes:
+	 *	                sumGathered = 0
+	 *	                for aId in range(c.NUM_AGENTS):
+	 *	                    sumGathered += c.agent[aId].unitsGatheredWithDeviceToday[types][resId]
+	 *	                self.resGatheredByDeviceByRes[types][resId].append(sumGathered)
+	 *<<<<<<<<<<<<<<<<<<<<< End original python code
+	 *
+	 */
+
+	for (int type = 0; type < glob.getNumResGatherDev(); type++) {
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+			int sumGathered = 0;
+			for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+				sumGathered += glob.agent[aId]->getUnitsGatheredWithDevice(
+						type, resId);
+
+			}
+			if (DEBUG_PRODUCTIONSTATS) {
+				cout << "Number Of Resources Gathered With Device Type" << type
+						<< " in order to gain resource " << resId << endl;
+			}
+			resGatheredByDeviceByRes[type][resId].push_back(sumGathered);
+		}
+	}
+}
+
+void ProductionStats::calcDevicesMade()
+{
+	/*
+	 * Looking to identify how many of each type of device was made today.
+	 * For each type in devicesMade, set made =0 and look in agent
+	 * Set the sum of each agent =0 and look at the each resource for each agent
+	 * If they invented that device for that resource add that to agent tempSum
+	 * After all resources have been checked for that device and that agent add the total to made
+	 * Once all agents have been checked append made to the devicesMade list for the given device
+	 */
+	for (int type = 0; type < glob.getNumDeviceTypes(); type++) {
+		int tempDevicesMade = 0;
+//		devicesMade.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+			int tempSum = 0;
+			for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+				tempSum += glob.agent[aId]->getDevicesMadeToday(resId, type);
+			}
+			tempDevicesMade += tempSum;
+		}
+		devicesMade[type].push_back(tempDevicesMade);
+	}
+}
+
+void ProductionStats::calcDevicesMadeByRes()
+{
+	/*
+	 * Similar process but now answering the question:  How many of a certain device has been made for a given resource.
+	 * Once Again I switched the order of loops from the python version.
+	 * The type-for loop is in front of the resId-for loop.
+	 */
+
+	for (int type = 0; type < glob.getNumDeviceTypes(); type++) {
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+			int tempMade = 0;
+			for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+				tempMade += glob.agent[aId]->getDevicesMadeToday(resId, type);
+				if (DEBUG_PRODUCTIONSTATS)
+					cout << "Agent " << aId << " Made device " << type
+							<< " from resource" << resId << endl;
+			}
+			devicesMadeByRes[type][resId].push_back(tempMade);
+		}
+	}
+}
+
+void ProductionStats::calcDevicesMadeWithDevDevicesByRes()
+{
+	/*
+	 * Merged two stats from python into 1 more efficient method.
+	 * This calculated the number of devices made by device making devices.
+	 * We want to know the total of devDevices made and the total devDevices made for each resource.
+	 *
+	 >>>>>>>>>>>>>>>>>>>>>>Original Python
+	 *		for types in self.devicesMadeWithDevDevice:
+	 *		            madeWithDevice = 0
+	 *		            for aId in range(c.NUM_AGENTS):
+	 *		                madeWithDevice += sum(c.agent[aId].devicesMadeWithDevDevicesToday[types])
+	 *		            self.devicesMadeWithDevDevice[types].append(madeWithDevice)
+	 *
+	 *
+	 *		        for resId in range(c.NUM_RESOURCES):
+	 *		            for types in self.devicesMadeWithDevDeviceByRes:
+	 *		                made = 0
+	 *		                for aId in range(c.NUM_AGENTS):
+	 *		                    made += c.agent[aId].devicesMadeWithDevDevicesToday[types][resId]
+	 *		                self.devicesMadeWithDevDeviceByRes[types][resId].append(made)
+	 *	>>>>>>>>>>>>>>>>>>>>>>>>End Python
+	 */
+	for (int type = 0; type < glob.getNumDeviceTypes(); type++) {
+		//Put in place holder vectors.  At this point it is making 6 but we really only need two.
+//		devicesMadeWithDevDevicesByRes.push_back(glob.EMPTY_VECTOR2);
+//		devicesMadeWithDevDevices.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		//		if (DEBUG_PRODUCTIONSTATS) cout << "A" << endl;
+		// This needs to be reset for each type (could also go below the if)
+		int devMadeWithDevice = 0;
+		// Only types 4 and 5 are devDevices so we don't care about the first 4 vects.
+		if (type >= 4) {
+			for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+				//this gets reset for each resource and set the inner vector
+				int devMadeWithDeviceByRes = 0;
+				for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+					// the next two lines look up the same thing, but one will be adding for each type and the other is adding for each type and resource
+					devMadeWithDeviceByRes
+							+= glob.agent[aId]->devicesMadeWithDevDevicesToday[type][resId];
+					devMadeWithDevice
+							+= glob.agent[aId]->devicesMadeWithDevDevicesToday[type][resId];
+					if (DEBUG_PRODUCTIONSTATS)
+						cout << "Devices Made With DevDevice:  Type: " << type
+								<< "  resID: " << resId << endl;
+					if (DEBUG_PRODUCTIONSTATS)
+						cout << "devMadeWithDeviceByRes   Type: " << type
+								<< "  resID: " << resId << endl;
+					if (DEBUG_PRODUCTIONSTATS)
+						cout << "devMadeWithDevice   Type: " << type
+								<< "  resID: " << resId << endl;
+					if (DEBUG_PRODUCTIONSTATS)
+						cout << "agentID: " << aId << "  resID: " << resId
+								<< " type: " << type << endl;
+				}
+				//				if (DEBUG_PRODUCTIONSTATS) cout << "E"  << endl;
+				devicesMadeWithDevDevicesByRes[type][resId].push_back(
+						devMadeWithDeviceByRes);
+			}
+			//			if (DEBUG_PRODUCTIONSTATS) cout << "F" << endl;
+			devicesMadeWithDevDevices[type].push_back(devMadeWithDevice);
+		}
+	}
+}
+
+void ProductionStats::calcTimeSpentGatheringWithoutDevice()
+{
+	/*
+	 * The goal is to save the time each agent spent gathering without devices and the amount of time society spent gathering without devices
+	 */
+	//	        withoutDeviceTotal = 0
+	//	        for aId in range(c.NUM_AGENTS):
+	//	            self.timeSpentGatheringWithoutDeviceByAgent[aId].append(c.agent[aId].timeSpentGatheringWithoutDeviceToday)
+	//	            withoutDeviceTotal += c.agent[aId].timeSpentGatheringWithoutDeviceToday
+	//	        self.timeSpentGatheringWithoutDevice.append(withoutDeviceTotal)
+	//
+	int withoutDeviceTotal = 0;
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		int withoutDeviceEachAgent = 0;
+//		timeSpentGatheringWithoutDeviceByAgent.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		withoutDeviceEachAgent
+				= glob.agent[aId]->timeSpentGatheringWithoutDeviceToday;
+		withoutDeviceTotal
+				+= glob.agent[aId]->timeSpentGatheringWithoutDeviceToday;
+		timeSpentGatheringWithoutDeviceByAgent[aId].push_back(
+				withoutDeviceEachAgent);
+	}
+	timeSpentGatheringWithoutDevice.push_back(withoutDeviceTotal);
+}
+
+void ProductionStats::calcTimeSpentGatheringWithDeviceAndTimeSpentMakingDevicesByAgent()
+{
+	/*
+	 * Merged to 2 stat methods together to increase the effiecieny of the program.  This keeps 4 statistics:
+	 * Amount of time each agent spends gathering resources with a device
+	 * Amount of time the population spends gathering resources with a device
+	 * Amount of time each agent spends making devices
+	 * Amount of time the population spends making devices
+	 *<<<<<<<<<<<<<<<<<<<<ORIGINAL CODE
+	 *
+	 *	        for types in self.timeSpentGatheringWithDevice:
+	 *		            totalTimeWithDevice = 0
+	 *		            for aId in range(c.NUM_AGENTS):
+	 *		                self.timeSpentGatheringWithDeviceByAgent[types][aId].append(c.agent[aId].timeSpentGatheringWithDeviceToday[types])
+	 *		                totalTimeWithDevice += c.agent[aId].timeSpentGatheringWithDeviceToday[types]
+	 *		            self.timeSpentGatheringWithDevice[types].append(totalTimeWithDevice)
+	 *
+	 *
+	 *	        for types in self.timeSpentMakingDevices:
+	 *	            timeSpentOnDevice = 0
+	 *	            for aId in range(c.NUM_AGENTS):
+	 *	                self.timeSpentMakingDevicesByAgent[types][aId].append(c.agent[aId].timeSpentMakingDevicesToday[types])
+	 *	                timeSpentOnDevice += c.agent[aId].timeSpentMakingDevicesToday[types]
+	 *	            self.timeSpentMakingDevices[types].append(timeSpentOnDevice)
+	 *<<<<<<<<<<<<<<<<<<<<<<<<<END CODE
+	 */
+
+	for (int tempType = 0; tempType < glob.getNumDeviceTypes(); tempType++) {
+		//Reset this value for each type so it calculates the time the all of society spends gathering/making with devices each day.
+		int totalTimeWithDevice = 0;
+		int totalTimeSpentMakingDevices = 0;
+
+		//Place holder vectors
+//		timeSpentGatheringWithDevice.push_back(glob.EMPTY_VECTOR_OF_INTS);
+//		timeSpentMakingDevices.push_back(glob.EMPTY_VECTOR_OF_INTS);
+//		timeSpentGatheringWithDeviceByAgent.push_back(glob.EMPTY_VECTOR2);
+//		timeSpentMakingDevicesByAgent.push_back(glob.EMPTY_VECTOR2);
+
+		for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+			//Grab the amount of time this agent spent gathering with/making devices for this type.
+			int
+					timeWithDeviceByAgent =
+							glob.agent[aId]->timeSpentGatheringWithDeviceToday[tempType];
+			int timeMakingDevicesByAgent =
+					glob.agent[aId]->timeSpentMakingDevicesToday[tempType];
+
+			//add this agents time spent with the previous agents
+			totalTimeWithDevice += timeWithDeviceByAgent;
+			totalTimeSpentMakingDevices += timeMakingDevicesByAgent;
+
+			//Place holder vectors
+//			timeSpentGatheringWithDeviceByAgent[tempType].push_back(
+//					glob.EMPTY_VECTOR_OF_INTS);
+//			timeSpentMakingDevicesByAgent[tempType].push_back(glob.EMPTY_VECTOR_OF_INTS);
+
+			//save this individual agent's time data in a vector.
+			timeSpentGatheringWithDeviceByAgent[tempType][aId].push_back(
+					timeWithDeviceByAgent);
+			timeSpentMakingDevicesByAgent[tempType][aId].push_back(
+					timeMakingDevicesByAgent);
+		}
+		//save the time data of the population as a whole.
+		timeSpentGatheringWithDevice[tempType].push_back(totalTimeWithDevice);
+		timeSpentMakingDevices[tempType].push_back(totalTimeSpentMakingDevices);
+	}
+}
+
+void ProductionStats::calcPercentResGatheredByDevice()
+{
+	/*
+	 * ANSWERS THE QUESTION:  Of all the resources gathered what percent of them were gathered with a device?
+	 */
+	//Used enums because the resGatheredByDevice is only filled with the first 4.
+	//Agent class does not fill vector indexes 5 and 6.
+	for (int type = TOOL; type <= INDUSTRY; type++) {
+//		percentResGatheredByDevice.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		if (DEBUG_PRODUCTIONSTATS)
+			cout << "Device type: " << type << endl;
+		int percentGathered = (resGatheredByDevice[type].back())
+				/ (resGathered.back());
+		if (DEBUG_PRODUCTIONSTATS)
+			cout << "ResGatheredByDevice for type: " << type << " =  "
+					<< resGatheredByDevice[type].back() << endl;
+		if (DEBUG_PRODUCTIONSTATS)
+			cout << "ResGathered =  " << resGathered.back() << endl;
+
+		percentResGatheredByDevice[type].push_back(percentGathered);
+	}
+}
+
+void ProductionStats::calcPercentResGatheredByDeviceByRes()
+{
+	/*
+	 * ANSWERS THE QUESTION:  What percent of each resource was gathered by a device
+	 * Indexed by only the devices that gather resources
+	 */
+
+	for (int type = TOOL; type <= INDUSTRY; type++) {
+//		percentResGatheredByDeviceByRes.push_back(glob.EMPTY_VECTOR2);
+		for (int resId = 0; resId < glob.NUM_RESOURCES; resId++) {
+//			percentResGatheredByDeviceByRes[type].push_back(glob.EMPTY_VECTOR_OF_INTS);
+			int percentGatheredBDBR = 0;
+			if (resGatheredByRes[resId].back() > 0) {
+				percentGatheredBDBR
+						= (resGatheredByDeviceByRes[type][resId].back())
+								/ (resGatheredByRes[resId].back());
+				percentResGatheredByDeviceByRes[type][resId].push_back(
+						percentGatheredBDBR);
+				if (DEBUG_PRODUCTIONSTATS) {
+					cout << "% of res " << resId << "gathered by device "
+							<< type << " : " << endl;
+				}
+
+			} else {
+				percentResGatheredByDeviceByRes[type][resId].push_back(0);
+			}
+		}
+
+	}
+}
+
+
+
+/******************************************************************
+ *
+ *
+ * 					OtherStats
+ *
+ * TODO: Move this class to another file so it can be used as a module
+ * 			and leave the program in a more organized state
+ *
+ ******************************************************************/
+
+/*
+ * Default Constructor:
+ * 		This default constructor creates all the necessary data structures (primarily
+ * 		vectors and nested vectors with type int at their lowest level). The structure
+ * 		of the loops in this constructor allows us to reduce the total number of
+ * 		loops the program must complete in order to gather statistics.
+ */
+OtherStats::OtherStats()
+{
+	activeAgents = vector<int>();
+	sumRes = vector<int>();
+	sumUtil = vector<double>();
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		sumResByAgent.push_back(vector<int>());
+		sumUtilByAgent.push_back(vector<double>());
+	}
+
+	for (int i = 0; i < glob.getNumDeviceTypes(); i++) {
+		numberOfInventedDevices.push_back(glob.EMPTY_VECTOR_OF_INTS);
+	}
+}
+
+/*
+ *  Calls functions to handle updating of resource stats, total utility,
+ *  				and statistics about devices in existence.
+ */
+void OtherStats::dailyUpdate()
+{
+	// TODO: do we keep track of activeAgents, for each day?
+	// activeAgents.push_back(glob.activeAgents);
+	calcSumResourcesByAgent();
+	calcSumUtility();
+	calcNumDevicesInvented();
+}
+
+/*
+ *  calcSumResourcesByAgent - Updates totals of resources held by agent and by population
+ */
+void OtherStats::calcSumResourcesByAgent()
+{
+	if (ENTER_EXIT_METHODS)
+		cout << "[statsTracker.cpp] OtherStats() - Enter" << endl;
+
+	int sumResources = 0;
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		int totalHeld = 0;
+//		sumResByAgent.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		for (int resP = 0; resP < glob.NUM_RESOURCES; resP++) {
+			if (DEBUG_OTHERSTATS) {
+				cout << "[statsTracker.cpp] OtherStats() - getting NumResources, aId = "
+						<< aId << " resId = " << resP << endl;
+			}
+
+			totalHeld += glob.agent[aId]->getHeld(resP);
+		}
+		sumResByAgent[aId].push_back(totalHeld);
+		sumResources += totalHeld;
+	}
+	sumRes.push_back(sumResources);
+	if (ENTER_EXIT_METHODS) {
+		cout << "[statsTracker.cpp] OtherStats() - Exit" << endl;
+	}
+}
+
+/*
+ *  calcSumUtility - Updates total utility owned by population per day
+ */
+void OtherStats::calcSumUtility() {
+	double sumUtility = 0;
+	for (int aId = 0; aId < glob.NUM_AGENTS; aId++) {
+		int agentUtility = 0;
+		agentUtility = glob.agent[aId]->utilityToday;
+		sumUtilByAgent[aId].push_back(agentUtility);	// jj29: line added
+		sumUtility += agentUtility;
+	}
+	sumUtil.push_back(sumUtility);
+}
+
+/*
+ *  calcNumDevicesInvented - Updates totals devices in existence
+ */
+void OtherStats::calcNumDevicesInvented() {
+	for (int i = 0; i < glob.getNumDeviceTypes(); i++) {
+//		numberOfInventedDevices.push_back(glob.EMPTY_VECTOR_OF_INTS);
+		int knownDevices = 0;
+		for (int j = 0; j < glob.NUM_RESOURCES; j++) {
+			if ((glob.discoveredDevices[i][j] != 0)
+					&& (glob.discoveredDevices[i][j]->agentsKnown() != 0)) {
+				knownDevices += 1;
+			}
+		}
+		numberOfInventedDevices[i].push_back(knownDevices);
+	}
+
+	if (DEBUG) {
+		cout << "Number of Invented Devices (By Type, By Day): ";
+		cout << "TOOL: " << numberOfInventedDevices[0].back() << ", ";
+		cout << "MACHINE: " << numberOfInventedDevices[1].back() << ", ";
+		cout << "FACTORY: " << numberOfInventedDevices[2].back() << ", ";
+		cout << "INDUSTRY: " << numberOfInventedDevices[3].back() << ", ";
+		cout << "DEVMACHINE: " << numberOfInventedDevices[4].back() << ", ";
+		cout << "DEVFACTORY: " << numberOfInventedDevices[5].back() << endl;
+	}
+}
+
+/**
+ * jj29: function not exist in python
+ */
+void OtherStats::getSumResByAgent() {
+	//GOAL:  Print the sum of resources held by each agent.
+	//set temporary variables
+	int tempDayNum = 0;
+	int tempAgentId = 0;
+
+	// We have a "2D" vector vvi (vector of vector of int's) that we need to iterate through.  We
+	// need to set the iterator for each vector.
+	vector<int>::iterator dayIT;
+	vector<vector<int> >::iterator agentIT;
+
+	//	For every agent reset the day number equal to 0
+	for (agentIT = sumResByAgent.begin(); agentIT != sumResByAgent.end(); agentIT++) {
+		tempDayNum = 0;
+		//  For every day look up how many resources this agent owns
+		for (dayIT = (*agentIT).begin(); dayIT != (*agentIT).end(); dayIT++) {
+			if (DEBUG) {
+				cout << "Sum Res By Agent " << tempAgentId << ": "
+						<< sumResByAgent[tempAgentId][tempDayNum]
+						<< " on day #" << tempDayNum << endl;
+			}
+			//		increment day number counter
+			tempDayNum++;
+		}
+		//		increment agentId counter
+		tempAgentId++;
+	}
+}
+
+
+
+
+
+
+

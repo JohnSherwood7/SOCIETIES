@@ -1,0 +1,8 @@
+1. endDayUtilities: 
+	double, declared in properties.h
+	changed in devmarketplace and marketplace
+	calculated by utilCalc(resId)
+2. utilCalc(resId):
+	defined in agent.h
+	return one of resId's marginalUtilities, or glob.MIN_RES_UTIL
+
